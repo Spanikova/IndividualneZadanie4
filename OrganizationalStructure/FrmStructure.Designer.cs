@@ -32,37 +32,37 @@
             this.dtGrdCompanies = new System.Windows.Forms.DataGridView();
             this.btnNewCompany = new System.Windows.Forms.Button();
             this.pnlCompanies = new System.Windows.Forms.Panel();
+            this.btnDeleteCompany = new System.Windows.Forms.Button();
+            this.btnDetailOfCompany = new System.Windows.Forms.Button();
+            this.btnUpdateCompany = new System.Windows.Forms.Button();
             this.pnlDivisions = new System.Windows.Forms.Panel();
+            this.btnDeleteDivision = new System.Windows.Forms.Button();
+            this.btnDetailOfDivision = new System.Windows.Forms.Button();
+            this.btnUpdateDivision = new System.Windows.Forms.Button();
             this.dtGrdDivisions = new System.Windows.Forms.DataGridView();
             this.lblDivisions = new System.Windows.Forms.Label();
             this.btnNewDivision = new System.Windows.Forms.Button();
             this.pnlProjects = new System.Windows.Forms.Panel();
+            this.btnDeleteProject = new System.Windows.Forms.Button();
+            this.btnDetailOfProject = new System.Windows.Forms.Button();
+            this.btnUpdateProject = new System.Windows.Forms.Button();
             this.dtGrdProjects = new System.Windows.Forms.DataGridView();
             this.lblProjects = new System.Windows.Forms.Label();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtGrdDepartment = new System.Windows.Forms.DataGridView();
+            this.btnDeleteDepartment = new System.Windows.Forms.Button();
+            this.btnDetailOfDepartment = new System.Windows.Forms.Button();
+            this.btnUpdateDepartment = new System.Windows.Forms.Button();
+            this.dtGrdDepartments = new System.Windows.Forms.DataGridView();
             this.lblDepartments = new System.Windows.Forms.Label();
             this.btnNewDepartment = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.btnDetailOfEmployee = new System.Windows.Forms.Button();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.dtGrdEmployees = new System.Windows.Forms.DataGridView();
             this.lblEmployees = new System.Windows.Forms.Label();
             this.btnEmployees = new System.Windows.Forms.Button();
-            this.btnUpdateCompany = new System.Windows.Forms.Button();
-            this.btnUpdateDivision = new System.Windows.Forms.Button();
-            this.btnUpdateProject = new System.Windows.Forms.Button();
-            this.btnUpdateDepartment = new System.Windows.Forms.Button();
-            this.btnUpdateEmployee = new System.Windows.Forms.Button();
-            this.btnDetailOfCompany = new System.Windows.Forms.Button();
-            this.btnDetailOfDivision = new System.Windows.Forms.Button();
-            this.btnDetailOfProject = new System.Windows.Forms.Button();
-            this.btnDetailOfDepartment = new System.Windows.Forms.Button();
-            this.btnDetailOfEmployee = new System.Windows.Forms.Button();
-            this.btnDeleteCompany = new System.Windows.Forms.Button();
-            this.btnDeleteDivision = new System.Windows.Forms.Button();
-            this.btnDeleteProject = new System.Windows.Forms.Button();
-            this.btnDeleteDepartment = new System.Windows.Forms.Button();
-            this.btnDeleteEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdCompanies)).BeginInit();
             this.pnlCompanies.SuspendLayout();
             this.pnlDivisions.SuspendLayout();
@@ -70,7 +70,7 @@
             this.pnlProjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdProjects)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGrdDepartment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrdDepartments)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdEmployees)).BeginInit();
             this.SuspendLayout();
@@ -87,11 +87,19 @@
             // 
             // dtGrdCompanies
             // 
+            this.dtGrdCompanies.AllowUserToAddRows = false;
+            this.dtGrdCompanies.AllowUserToDeleteRows = false;
+            this.dtGrdCompanies.AllowUserToResizeColumns = false;
+            this.dtGrdCompanies.AllowUserToResizeRows = false;
             this.dtGrdCompanies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrdCompanies.Location = new System.Drawing.Point(32, 124);
             this.dtGrdCompanies.Name = "dtGrdCompanies";
+            this.dtGrdCompanies.ReadOnly = true;
+            this.dtGrdCompanies.RowHeadersVisible = false;
+            this.dtGrdCompanies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGrdCompanies.Size = new System.Drawing.Size(212, 397);
             this.dtGrdCompanies.TabIndex = 1;
+            this.dtGrdCompanies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdCompanies_CellClick);
             // 
             // btnNewCompany
             // 
@@ -117,6 +125,39 @@
             this.pnlCompanies.Size = new System.Drawing.Size(267, 570);
             this.pnlCompanies.TabIndex = 6;
             // 
+            // btnDeleteCompany
+            // 
+            this.btnDeleteCompany.Location = new System.Drawing.Point(141, 80);
+            this.btnDeleteCompany.Name = "btnDeleteCompany";
+            this.btnDeleteCompany.Size = new System.Drawing.Size(103, 23);
+            this.btnDeleteCompany.TabIndex = 5;
+            this.btnDeleteCompany.Tag = "0";
+            this.btnDeleteCompany.Text = "Zmazať firmu";
+            this.btnDeleteCompany.UseVisualStyleBackColor = true;
+            this.btnDeleteCompany.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // btnDetailOfCompany
+            // 
+            this.btnDetailOfCompany.Location = new System.Drawing.Point(32, 51);
+            this.btnDetailOfCompany.Name = "btnDetailOfCompany";
+            this.btnDetailOfCompany.Size = new System.Drawing.Size(103, 23);
+            this.btnDetailOfCompany.TabIndex = 4;
+            this.btnDetailOfCompany.Tag = "0";
+            this.btnDetailOfCompany.Text = "Zobraziť firmu";
+            this.btnDetailOfCompany.UseVisualStyleBackColor = true;
+            this.btnDetailOfCompany.Click += new System.EventHandler(this.BtnDetail_Click);
+            // 
+            // btnUpdateCompany
+            // 
+            this.btnUpdateCompany.Location = new System.Drawing.Point(32, 80);
+            this.btnUpdateCompany.Name = "btnUpdateCompany";
+            this.btnUpdateCompany.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateCompany.TabIndex = 3;
+            this.btnUpdateCompany.Tag = "0";
+            this.btnUpdateCompany.Text = "Upraviť firmu";
+            this.btnUpdateCompany.UseVisualStyleBackColor = true;
+            this.btnUpdateCompany.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // pnlDivisions
             // 
             this.pnlDivisions.Controls.Add(this.btnDeleteDivision);
@@ -130,13 +171,54 @@
             this.pnlDivisions.Size = new System.Drawing.Size(267, 570);
             this.pnlDivisions.TabIndex = 7;
             // 
+            // btnDeleteDivision
+            // 
+            this.btnDeleteDivision.Location = new System.Drawing.Point(141, 80);
+            this.btnDeleteDivision.Name = "btnDeleteDivision";
+            this.btnDeleteDivision.Size = new System.Drawing.Size(103, 23);
+            this.btnDeleteDivision.TabIndex = 6;
+            this.btnDeleteDivision.Tag = "1";
+            this.btnDeleteDivision.Text = "Zmazať divíziu";
+            this.btnDeleteDivision.UseVisualStyleBackColor = true;
+            this.btnDeleteDivision.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // btnDetailOfDivision
+            // 
+            this.btnDetailOfDivision.Location = new System.Drawing.Point(32, 51);
+            this.btnDetailOfDivision.Name = "btnDetailOfDivision";
+            this.btnDetailOfDivision.Size = new System.Drawing.Size(103, 23);
+            this.btnDetailOfDivision.TabIndex = 5;
+            this.btnDetailOfDivision.Tag = "1";
+            this.btnDetailOfDivision.Text = "Zobraziť divíziu";
+            this.btnDetailOfDivision.UseVisualStyleBackColor = true;
+            this.btnDetailOfDivision.Click += new System.EventHandler(this.BtnDetail_Click);
+            // 
+            // btnUpdateDivision
+            // 
+            this.btnUpdateDivision.Location = new System.Drawing.Point(32, 80);
+            this.btnUpdateDivision.Name = "btnUpdateDivision";
+            this.btnUpdateDivision.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateDivision.TabIndex = 4;
+            this.btnUpdateDivision.Tag = "1";
+            this.btnUpdateDivision.Text = "Upraviť divíziu";
+            this.btnUpdateDivision.UseVisualStyleBackColor = true;
+            this.btnUpdateDivision.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // dtGrdDivisions
             // 
+            this.dtGrdDivisions.AllowUserToAddRows = false;
+            this.dtGrdDivisions.AllowUserToDeleteRows = false;
+            this.dtGrdDivisions.AllowUserToResizeColumns = false;
+            this.dtGrdDivisions.AllowUserToResizeRows = false;
             this.dtGrdDivisions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrdDivisions.Location = new System.Drawing.Point(32, 124);
             this.dtGrdDivisions.Name = "dtGrdDivisions";
+            this.dtGrdDivisions.ReadOnly = true;
+            this.dtGrdDivisions.RowHeadersVisible = false;
+            this.dtGrdDivisions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGrdDivisions.Size = new System.Drawing.Size(212, 397);
             this.dtGrdDivisions.TabIndex = 1;
+            this.dtGrdDivisions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdDivisions_CellClick);
             // 
             // lblDivisions
             // 
@@ -144,9 +226,9 @@
             this.lblDivisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDivisions.Location = new System.Drawing.Point(28, 13);
             this.lblDivisions.Name = "lblDivisions";
-            this.lblDivisions.Size = new System.Drawing.Size(54, 20);
+            this.lblDivisions.Size = new System.Drawing.Size(91, 20);
             this.lblDivisions.TabIndex = 0;
-            this.lblDivisions.Text = "Divízie";
+            this.lblDivisions.Text = "Divízie firmy";
             // 
             // btnNewDivision
             // 
@@ -172,13 +254,54 @@
             this.pnlProjects.Size = new System.Drawing.Size(267, 570);
             this.pnlProjects.TabIndex = 8;
             // 
+            // btnDeleteProject
+            // 
+            this.btnDeleteProject.Location = new System.Drawing.Point(141, 80);
+            this.btnDeleteProject.Name = "btnDeleteProject";
+            this.btnDeleteProject.Size = new System.Drawing.Size(103, 23);
+            this.btnDeleteProject.TabIndex = 7;
+            this.btnDeleteProject.Tag = "2";
+            this.btnDeleteProject.Text = "Zmazať projekt";
+            this.btnDeleteProject.UseVisualStyleBackColor = true;
+            this.btnDeleteProject.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // btnDetailOfProject
+            // 
+            this.btnDetailOfProject.Location = new System.Drawing.Point(32, 51);
+            this.btnDetailOfProject.Name = "btnDetailOfProject";
+            this.btnDetailOfProject.Size = new System.Drawing.Size(103, 23);
+            this.btnDetailOfProject.TabIndex = 6;
+            this.btnDetailOfProject.Tag = "2";
+            this.btnDetailOfProject.Text = "Zobraziť projekt";
+            this.btnDetailOfProject.UseVisualStyleBackColor = true;
+            this.btnDetailOfProject.Click += new System.EventHandler(this.BtnDetail_Click);
+            // 
+            // btnUpdateProject
+            // 
+            this.btnUpdateProject.Location = new System.Drawing.Point(32, 80);
+            this.btnUpdateProject.Name = "btnUpdateProject";
+            this.btnUpdateProject.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateProject.TabIndex = 5;
+            this.btnUpdateProject.Tag = "2";
+            this.btnUpdateProject.Text = "Upraviť projekt";
+            this.btnUpdateProject.UseVisualStyleBackColor = true;
+            this.btnUpdateProject.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // dtGrdProjects
             // 
+            this.dtGrdProjects.AllowUserToAddRows = false;
+            this.dtGrdProjects.AllowUserToDeleteRows = false;
+            this.dtGrdProjects.AllowUserToResizeColumns = false;
+            this.dtGrdProjects.AllowUserToResizeRows = false;
             this.dtGrdProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrdProjects.Location = new System.Drawing.Point(32, 124);
             this.dtGrdProjects.Name = "dtGrdProjects";
+            this.dtGrdProjects.ReadOnly = true;
+            this.dtGrdProjects.RowHeadersVisible = false;
+            this.dtGrdProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGrdProjects.Size = new System.Drawing.Size(212, 397);
             this.dtGrdProjects.TabIndex = 1;
+            this.dtGrdProjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdProjects_CellClick);
             // 
             // lblProjects
             // 
@@ -186,9 +309,9 @@
             this.lblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblProjects.Location = new System.Drawing.Point(28, 13);
             this.lblProjects.Name = "lblProjects";
-            this.lblProjects.Size = new System.Drawing.Size(65, 20);
+            this.lblProjects.Size = new System.Drawing.Size(111, 20);
             this.lblProjects.TabIndex = 0;
-            this.lblProjects.Text = "Projekty";
+            this.lblProjects.Text = "Projekty divízie";
             // 
             // btnNewProject
             // 
@@ -206,7 +329,7 @@
             this.panel1.Controls.Add(this.btnDeleteDepartment);
             this.panel1.Controls.Add(this.btnDetailOfDepartment);
             this.panel1.Controls.Add(this.btnUpdateDepartment);
-            this.panel1.Controls.Add(this.dtGrdDepartment);
+            this.panel1.Controls.Add(this.dtGrdDepartments);
             this.panel1.Controls.Add(this.lblDepartments);
             this.panel1.Controls.Add(this.btnNewDepartment);
             this.panel1.Location = new System.Drawing.Point(831, 40);
@@ -214,13 +337,54 @@
             this.panel1.Size = new System.Drawing.Size(267, 570);
             this.panel1.TabIndex = 9;
             // 
-            // dtGrdDepartment
+            // btnDeleteDepartment
             // 
-            this.dtGrdDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdDepartment.Location = new System.Drawing.Point(32, 124);
-            this.dtGrdDepartment.Name = "dtGrdDepartment";
-            this.dtGrdDepartment.Size = new System.Drawing.Size(212, 397);
-            this.dtGrdDepartment.TabIndex = 1;
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(141, 80);
+            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
+            this.btnDeleteDepartment.Size = new System.Drawing.Size(103, 23);
+            this.btnDeleteDepartment.TabIndex = 7;
+            this.btnDeleteDepartment.Tag = "3";
+            this.btnDeleteDepartment.Text = "Zmazať oddelenie";
+            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDeleteDepartment.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // btnDetailOfDepartment
+            // 
+            this.btnDetailOfDepartment.Location = new System.Drawing.Point(32, 51);
+            this.btnDetailOfDepartment.Name = "btnDetailOfDepartment";
+            this.btnDetailOfDepartment.Size = new System.Drawing.Size(103, 23);
+            this.btnDetailOfDepartment.TabIndex = 6;
+            this.btnDetailOfDepartment.Tag = "3";
+            this.btnDetailOfDepartment.Text = "Zobraziť oddelenie";
+            this.btnDetailOfDepartment.UseVisualStyleBackColor = true;
+            this.btnDetailOfDepartment.Click += new System.EventHandler(this.BtnDetail_Click);
+            // 
+            // btnUpdateDepartment
+            // 
+            this.btnUpdateDepartment.Location = new System.Drawing.Point(32, 80);
+            this.btnUpdateDepartment.Name = "btnUpdateDepartment";
+            this.btnUpdateDepartment.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateDepartment.TabIndex = 5;
+            this.btnUpdateDepartment.Tag = "3";
+            this.btnUpdateDepartment.Text = "Upraviť oddelenie";
+            this.btnUpdateDepartment.UseVisualStyleBackColor = true;
+            this.btnUpdateDepartment.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
+            // dtGrdDepartments
+            // 
+            this.dtGrdDepartments.AllowUserToAddRows = false;
+            this.dtGrdDepartments.AllowUserToDeleteRows = false;
+            this.dtGrdDepartments.AllowUserToResizeColumns = false;
+            this.dtGrdDepartments.AllowUserToResizeRows = false;
+            this.dtGrdDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrdDepartments.Location = new System.Drawing.Point(32, 124);
+            this.dtGrdDepartments.Name = "dtGrdDepartments";
+            this.dtGrdDepartments.ReadOnly = true;
+            this.dtGrdDepartments.RowHeadersVisible = false;
+            this.dtGrdDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGrdDepartments.Size = new System.Drawing.Size(212, 397);
+            this.dtGrdDepartments.TabIndex = 1;
+            this.dtGrdDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdDepartments_CellClick);
             // 
             // lblDepartments
             // 
@@ -228,9 +392,9 @@
             this.lblDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDepartments.Location = new System.Drawing.Point(28, 13);
             this.lblDepartments.Name = "lblDepartments";
-            this.lblDepartments.Size = new System.Drawing.Size(81, 20);
+            this.lblDepartments.Size = new System.Drawing.Size(142, 20);
             this.lblDepartments.TabIndex = 0;
-            this.lblDepartments.Text = "Oddelenia";
+            this.lblDepartments.Text = "Oddelenia projektu";
             // 
             // btnNewDepartment
             // 
@@ -256,129 +420,14 @@
             this.panel2.Size = new System.Drawing.Size(310, 570);
             this.panel2.TabIndex = 10;
             // 
-            // dtGrdEmployees
+            // btnDeleteEmployee
             // 
-            this.dtGrdEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdEmployees.Location = new System.Drawing.Point(32, 124);
-            this.dtGrdEmployees.Name = "dtGrdEmployees";
-            this.dtGrdEmployees.Size = new System.Drawing.Size(270, 397);
-            this.dtGrdEmployees.TabIndex = 1;
-            // 
-            // lblEmployees
-            // 
-            this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblEmployees.Location = new System.Drawing.Point(28, 13);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(92, 20);
-            this.lblEmployees.TabIndex = 0;
-            this.lblEmployees.Text = "Zamestanci";
-            // 
-            // btnEmployees
-            // 
-            this.btnEmployees.Location = new System.Drawing.Point(170, 51);
-            this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Size = new System.Drawing.Size(132, 23);
-            this.btnEmployees.TabIndex = 2;
-            this.btnEmployees.Text = "Nový zamestnanec";
-            this.btnEmployees.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateCompany
-            // 
-            this.btnUpdateCompany.Location = new System.Drawing.Point(32, 80);
-            this.btnUpdateCompany.Name = "btnUpdateCompany";
-            this.btnUpdateCompany.Size = new System.Drawing.Size(103, 23);
-            this.btnUpdateCompany.TabIndex = 3;
-            this.btnUpdateCompany.Tag = "0";
-            this.btnUpdateCompany.Text = "Upraviť firmu";
-            this.btnUpdateCompany.UseVisualStyleBackColor = true;
-            this.btnUpdateCompany.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnUpdateDivision
-            // 
-            this.btnUpdateDivision.Location = new System.Drawing.Point(32, 80);
-            this.btnUpdateDivision.Name = "btnUpdateDivision";
-            this.btnUpdateDivision.Size = new System.Drawing.Size(103, 23);
-            this.btnUpdateDivision.TabIndex = 4;
-            this.btnUpdateDivision.Tag = "1";
-            this.btnUpdateDivision.Text = "Upraviť divíziu";
-            this.btnUpdateDivision.UseVisualStyleBackColor = true;
-            this.btnUpdateDivision.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnUpdateProject
-            // 
-            this.btnUpdateProject.Location = new System.Drawing.Point(32, 80);
-            this.btnUpdateProject.Name = "btnUpdateProject";
-            this.btnUpdateProject.Size = new System.Drawing.Size(103, 23);
-            this.btnUpdateProject.TabIndex = 5;
-            this.btnUpdateProject.Tag = "2";
-            this.btnUpdateProject.Text = "Upraviť projekt";
-            this.btnUpdateProject.UseVisualStyleBackColor = true;
-            this.btnUpdateProject.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnUpdateDepartment
-            // 
-            this.btnUpdateDepartment.Location = new System.Drawing.Point(32, 80);
-            this.btnUpdateDepartment.Name = "btnUpdateDepartment";
-            this.btnUpdateDepartment.Size = new System.Drawing.Size(103, 23);
-            this.btnUpdateDepartment.TabIndex = 5;
-            this.btnUpdateDepartment.Tag = "3";
-            this.btnUpdateDepartment.Text = "Upraviť oddelenie";
-            this.btnUpdateDepartment.UseVisualStyleBackColor = true;
-            this.btnUpdateDepartment.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // btnUpdateEmployee
-            // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(32, 80);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(132, 23);
-            this.btnUpdateEmployee.TabIndex = 6;
-            this.btnUpdateEmployee.Text = "Upraviť zamestnanca";
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
-            // 
-            // btnDetailOfCompany
-            // 
-            this.btnDetailOfCompany.Location = new System.Drawing.Point(32, 51);
-            this.btnDetailOfCompany.Name = "btnDetailOfCompany";
-            this.btnDetailOfCompany.Size = new System.Drawing.Size(103, 23);
-            this.btnDetailOfCompany.TabIndex = 4;
-            this.btnDetailOfCompany.Tag = "0";
-            this.btnDetailOfCompany.Text = "Zobraziť firmu";
-            this.btnDetailOfCompany.UseVisualStyleBackColor = true;
-            this.btnDetailOfCompany.Click += new System.EventHandler(this.BtnDetail_Click);
-            // 
-            // btnDetailOfDivision
-            // 
-            this.btnDetailOfDivision.Location = new System.Drawing.Point(32, 51);
-            this.btnDetailOfDivision.Name = "btnDetailOfDivision";
-            this.btnDetailOfDivision.Size = new System.Drawing.Size(103, 23);
-            this.btnDetailOfDivision.TabIndex = 5;
-            this.btnDetailOfDivision.Tag = "1";
-            this.btnDetailOfDivision.Text = "Zobraziť divíziu";
-            this.btnDetailOfDivision.UseVisualStyleBackColor = true;
-            this.btnDetailOfDivision.Click += new System.EventHandler(this.BtnDetail_Click);
-            // 
-            // btnDetailOfProject
-            // 
-            this.btnDetailOfProject.Location = new System.Drawing.Point(32, 51);
-            this.btnDetailOfProject.Name = "btnDetailOfProject";
-            this.btnDetailOfProject.Size = new System.Drawing.Size(103, 23);
-            this.btnDetailOfProject.TabIndex = 6;
-            this.btnDetailOfProject.Tag = "2";
-            this.btnDetailOfProject.Text = "Zobraziť projekt";
-            this.btnDetailOfProject.UseVisualStyleBackColor = true;
-            this.btnDetailOfProject.Click += new System.EventHandler(this.BtnDetail_Click);
-            // 
-            // btnDetailOfDepartment
-            // 
-            this.btnDetailOfDepartment.Location = new System.Drawing.Point(32, 51);
-            this.btnDetailOfDepartment.Name = "btnDetailOfDepartment";
-            this.btnDetailOfDepartment.Size = new System.Drawing.Size(103, 23);
-            this.btnDetailOfDepartment.TabIndex = 6;
-            this.btnDetailOfDepartment.Tag = "3";
-            this.btnDetailOfDepartment.Text = "Zobraziť oddelenie";
-            this.btnDetailOfDepartment.UseVisualStyleBackColor = true;
-            this.btnDetailOfDepartment.Click += new System.EventHandler(this.BtnDetail_Click);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(170, 80);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(132, 23);
+            this.btnDeleteEmployee.TabIndex = 8;
+            this.btnDeleteEmployee.Text = "Zmazať zamestnanca";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
             // 
             // btnDetailOfEmployee
             // 
@@ -389,58 +438,49 @@
             this.btnDetailOfEmployee.Text = "Zobraziť zamestnanca";
             this.btnDetailOfEmployee.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteCompany
+            // btnUpdateEmployee
             // 
-            this.btnDeleteCompany.Location = new System.Drawing.Point(141, 80);
-            this.btnDeleteCompany.Name = "btnDeleteCompany";
-            this.btnDeleteCompany.Size = new System.Drawing.Size(103, 23);
-            this.btnDeleteCompany.TabIndex = 5;
-            this.btnDeleteCompany.Tag = "0";
-            this.btnDeleteCompany.Text = "Zmazať firmu";
-            this.btnDeleteCompany.UseVisualStyleBackColor = true;
-            this.btnDeleteCompany.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(32, 80);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(132, 23);
+            this.btnUpdateEmployee.TabIndex = 6;
+            this.btnUpdateEmployee.Text = "Upraviť zamestnanca";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteDivision
+            // dtGrdEmployees
             // 
-            this.btnDeleteDivision.Location = new System.Drawing.Point(141, 80);
-            this.btnDeleteDivision.Name = "btnDeleteDivision";
-            this.btnDeleteDivision.Size = new System.Drawing.Size(103, 23);
-            this.btnDeleteDivision.TabIndex = 6;
-            this.btnDeleteDivision.Tag = "1";
-            this.btnDeleteDivision.Text = "Zmazať divíziu";
-            this.btnDeleteDivision.UseVisualStyleBackColor = true;
-            this.btnDeleteDivision.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.dtGrdEmployees.AllowUserToAddRows = false;
+            this.dtGrdEmployees.AllowUserToDeleteRows = false;
+            this.dtGrdEmployees.AllowUserToResizeColumns = false;
+            this.dtGrdEmployees.AllowUserToResizeRows = false;
+            this.dtGrdEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrdEmployees.Location = new System.Drawing.Point(32, 124);
+            this.dtGrdEmployees.Name = "dtGrdEmployees";
+            this.dtGrdEmployees.ReadOnly = true;
+            this.dtGrdEmployees.RowHeadersVisible = false;
+            this.dtGrdEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGrdEmployees.Size = new System.Drawing.Size(270, 397);
+            this.dtGrdEmployees.TabIndex = 1;
+            this.dtGrdEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdEmployees_CellClick);
             // 
-            // btnDeleteProject
+            // lblEmployees
             // 
-            this.btnDeleteProject.Location = new System.Drawing.Point(141, 80);
-            this.btnDeleteProject.Name = "btnDeleteProject";
-            this.btnDeleteProject.Size = new System.Drawing.Size(103, 23);
-            this.btnDeleteProject.TabIndex = 7;
-            this.btnDeleteProject.Tag = "2";
-            this.btnDeleteProject.Text = "Zmazať projekt";
-            this.btnDeleteProject.UseVisualStyleBackColor = true;
-            this.btnDeleteProject.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.lblEmployees.AutoSize = true;
+            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmployees.Location = new System.Drawing.Point(28, 13);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(165, 20);
+            this.lblEmployees.TabIndex = 0;
+            this.lblEmployees.Text = "Zamestanci oddelenia";
             // 
-            // btnDeleteDepartment
+            // btnEmployees
             // 
-            this.btnDeleteDepartment.Location = new System.Drawing.Point(141, 80);
-            this.btnDeleteDepartment.Name = "btnDeleteDepartment";
-            this.btnDeleteDepartment.Size = new System.Drawing.Size(103, 23);
-            this.btnDeleteDepartment.TabIndex = 7;
-            this.btnDeleteDepartment.Tag = "3";
-            this.btnDeleteDepartment.Text = "Zmazať oddelenie";
-            this.btnDeleteDepartment.UseVisualStyleBackColor = true;
-            this.btnDeleteDepartment.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(170, 80);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(132, 23);
-            this.btnDeleteEmployee.TabIndex = 8;
-            this.btnDeleteEmployee.Text = "Zmazať zamestnanca";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployees.Location = new System.Drawing.Point(170, 51);
+            this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.Size = new System.Drawing.Size(132, 23);
+            this.btnEmployees.TabIndex = 2;
+            this.btnEmployees.Text = "Nový zamestnanec";
+            this.btnEmployees.UseVisualStyleBackColor = true;
             // 
             // FrmStructure
             // 
@@ -465,7 +505,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdProjects)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGrdDepartment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrdDepartments)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdEmployees)).EndInit();
@@ -488,7 +528,7 @@
         private System.Windows.Forms.Label lblProjects;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dtGrdDepartment;
+        private System.Windows.Forms.DataGridView dtGrdDepartments;
         private System.Windows.Forms.Label lblDepartments;
         private System.Windows.Forms.Button btnNewDepartment;
         private System.Windows.Forms.Panel panel2;

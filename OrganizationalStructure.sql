@@ -21,7 +21,7 @@ LastName nvarchar (50) NOT NULL,
 Title nvarchar (20) NULL,
 Phone nvarchar (20) NOT NULL,
 Email nvarchar (100) NOT NULL,
-DepartmentID int FOREIGN KEY REFERENCES Sections(ID) NULL
+DepartmentID int FOREIGN KEY REFERENCES Sections(ID) NOT NULL
 );
 GO
 
