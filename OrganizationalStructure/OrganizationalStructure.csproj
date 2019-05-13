@@ -48,17 +48,20 @@
   <ItemGroup>
     <Compile Include="Data\Repositories\EmployeeRepository.cs" />
     <Compile Include="Data\Repositories\SectionRepository.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmStructure.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmStructure.Designer.cs">
+      <DependentUpon>FrmStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Models\Employee.cs" />
     <Compile Include="Data\Models\OrganizationalLevel.cs" />
     <Compile Include="Data\Models\Section.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmStructure.resx">
+      <DependentUpon>FrmStructure.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OrganizationalStructure
 {
-    public partial class Form1 : Form
+    public partial class FrmStructure : Form
     {
-        public Form1()
+        public FrmStructure()
         {
             InitializeComponent();
         }
