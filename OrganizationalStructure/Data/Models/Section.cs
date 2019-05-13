@@ -10,7 +10,7 @@ namespace OrganizationalStructure.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int Code { get; set; }
+        public string Code { get; set; }
         public OrganizationalLevel OrganizationalLevel { get; set; }
         public int ManagerID { get; set; }
         public int SuperiorSectionID { get; set; }

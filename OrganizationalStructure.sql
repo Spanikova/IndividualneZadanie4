@@ -7,7 +7,7 @@ GO
 CREATE TABLE Sections (
 ID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 Name nvarchar (50) NOT NULL,
-Code int UNIQUE NOT NULL,
+Code nvarchar (10) UNIQUE NOT NULL,
 OrganizationalLevel int NOT NULL,
 ManagerID int NULL,
 SuperiorSectionID int FOREIGN KEY REFERENCES Sections(ID) NULL

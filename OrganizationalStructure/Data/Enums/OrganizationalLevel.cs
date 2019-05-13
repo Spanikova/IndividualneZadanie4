@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganizationalStructure.Models
+namespace OrganizationalStructure.Data.Enums
 {
     public enum OrganizationalLevel
     {

@@ -88,19 +88,21 @@
             // dtGrdCompanies
             // 
             this.dtGrdCompanies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdCompanies.Location = new System.Drawing.Point(32, 173);
+            this.dtGrdCompanies.Location = new System.Drawing.Point(32, 124);
             this.dtGrdCompanies.Name = "dtGrdCompanies";
             this.dtGrdCompanies.Size = new System.Drawing.Size(212, 397);
             this.dtGrdCompanies.TabIndex = 1;
             // 
             // btnNewCompany
             // 
-            this.btnNewCompany.Location = new System.Drawing.Point(32, 138);
+            this.btnNewCompany.Location = new System.Drawing.Point(141, 51);
             this.btnNewCompany.Name = "btnNewCompany";
             this.btnNewCompany.Size = new System.Drawing.Size(103, 23);
             this.btnNewCompany.TabIndex = 2;
+            this.btnNewCompany.Tag = "0";
             this.btnNewCompany.Text = "Nová firma";
             this.btnNewCompany.UseVisualStyleBackColor = true;
+            this.btnNewCompany.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // pnlCompanies
             // 
@@ -131,7 +133,7 @@
             // dtGrdDivisions
             // 
             this.dtGrdDivisions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdDivisions.Location = new System.Drawing.Point(32, 173);
+            this.dtGrdDivisions.Location = new System.Drawing.Point(32, 124);
             this.dtGrdDivisions.Name = "dtGrdDivisions";
             this.dtGrdDivisions.Size = new System.Drawing.Size(212, 397);
             this.dtGrdDivisions.TabIndex = 1;
@@ -148,12 +150,14 @@
             // 
             // btnNewDivision
             // 
-            this.btnNewDivision.Location = new System.Drawing.Point(32, 138);
+            this.btnNewDivision.Location = new System.Drawing.Point(141, 51);
             this.btnNewDivision.Name = "btnNewDivision";
             this.btnNewDivision.Size = new System.Drawing.Size(103, 23);
             this.btnNewDivision.TabIndex = 2;
+            this.btnNewDivision.Tag = "1";
             this.btnNewDivision.Text = "Nová divízia";
             this.btnNewDivision.UseVisualStyleBackColor = true;
+            this.btnNewDivision.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // pnlProjects
             // 
@@ -171,7 +175,7 @@
             // dtGrdProjects
             // 
             this.dtGrdProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdProjects.Location = new System.Drawing.Point(32, 173);
+            this.dtGrdProjects.Location = new System.Drawing.Point(32, 124);
             this.dtGrdProjects.Name = "dtGrdProjects";
             this.dtGrdProjects.Size = new System.Drawing.Size(212, 397);
             this.dtGrdProjects.TabIndex = 1;
@@ -188,12 +192,14 @@
             // 
             // btnNewProject
             // 
-            this.btnNewProject.Location = new System.Drawing.Point(32, 138);
+            this.btnNewProject.Location = new System.Drawing.Point(141, 51);
             this.btnNewProject.Name = "btnNewProject";
             this.btnNewProject.Size = new System.Drawing.Size(103, 23);
             this.btnNewProject.TabIndex = 2;
+            this.btnNewProject.Tag = "2";
             this.btnNewProject.Text = "Nový projekt";
             this.btnNewProject.UseVisualStyleBackColor = true;
+            this.btnNewProject.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // panel1
             // 
@@ -211,7 +217,7 @@
             // dtGrdDepartment
             // 
             this.dtGrdDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdDepartment.Location = new System.Drawing.Point(32, 173);
+            this.dtGrdDepartment.Location = new System.Drawing.Point(32, 124);
             this.dtGrdDepartment.Name = "dtGrdDepartment";
             this.dtGrdDepartment.Size = new System.Drawing.Size(212, 397);
             this.dtGrdDepartment.TabIndex = 1;
@@ -228,12 +234,14 @@
             // 
             // btnNewDepartment
             // 
-            this.btnNewDepartment.Location = new System.Drawing.Point(32, 138);
+            this.btnNewDepartment.Location = new System.Drawing.Point(141, 51);
             this.btnNewDepartment.Name = "btnNewDepartment";
             this.btnNewDepartment.Size = new System.Drawing.Size(103, 23);
             this.btnNewDepartment.TabIndex = 2;
+            this.btnNewDepartment.Tag = "3";
             this.btnNewDepartment.Text = "Nové oddelenie";
             this.btnNewDepartment.UseVisualStyleBackColor = true;
+            this.btnNewDepartment.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // panel2
             // 
@@ -245,15 +253,15 @@
             this.panel2.Controls.Add(this.btnEmployees);
             this.panel2.Location = new System.Drawing.Point(1104, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 570);
+            this.panel2.Size = new System.Drawing.Size(310, 570);
             this.panel2.TabIndex = 10;
             // 
             // dtGrdEmployees
             // 
             this.dtGrdEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdEmployees.Location = new System.Drawing.Point(32, 173);
+            this.dtGrdEmployees.Location = new System.Drawing.Point(32, 124);
             this.dtGrdEmployees.Name = "dtGrdEmployees";
-            this.dtGrdEmployees.Size = new System.Drawing.Size(211, 397);
+            this.dtGrdEmployees.Size = new System.Drawing.Size(270, 397);
             this.dtGrdEmployees.TabIndex = 1;
             // 
             // lblEmployees
@@ -268,7 +276,7 @@
             // 
             // btnEmployees
             // 
-            this.btnEmployees.Location = new System.Drawing.Point(32, 138);
+            this.btnEmployees.Location = new System.Drawing.Point(170, 51);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(132, 23);
             this.btnEmployees.TabIndex = 2;
@@ -281,8 +289,10 @@
             this.btnUpdateCompany.Name = "btnUpdateCompany";
             this.btnUpdateCompany.Size = new System.Drawing.Size(103, 23);
             this.btnUpdateCompany.TabIndex = 3;
+            this.btnUpdateCompany.Tag = "0";
             this.btnUpdateCompany.Text = "Upraviť firmu";
             this.btnUpdateCompany.UseVisualStyleBackColor = true;
+            this.btnUpdateCompany.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnUpdateDivision
             // 
@@ -290,8 +300,10 @@
             this.btnUpdateDivision.Name = "btnUpdateDivision";
             this.btnUpdateDivision.Size = new System.Drawing.Size(103, 23);
             this.btnUpdateDivision.TabIndex = 4;
+            this.btnUpdateDivision.Tag = "1";
             this.btnUpdateDivision.Text = "Upraviť divíziu";
             this.btnUpdateDivision.UseVisualStyleBackColor = true;
+            this.btnUpdateDivision.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnUpdateProject
             // 
@@ -299,8 +311,10 @@
             this.btnUpdateProject.Name = "btnUpdateProject";
             this.btnUpdateProject.Size = new System.Drawing.Size(103, 23);
             this.btnUpdateProject.TabIndex = 5;
+            this.btnUpdateProject.Tag = "2";
             this.btnUpdateProject.Text = "Upraviť projekt";
             this.btnUpdateProject.UseVisualStyleBackColor = true;
+            this.btnUpdateProject.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnUpdateDepartment
             // 
@@ -308,8 +322,10 @@
             this.btnUpdateDepartment.Name = "btnUpdateDepartment";
             this.btnUpdateDepartment.Size = new System.Drawing.Size(103, 23);
             this.btnUpdateDepartment.TabIndex = 5;
+            this.btnUpdateDepartment.Tag = "3";
             this.btnUpdateDepartment.Text = "Upraviť oddelenie";
             this.btnUpdateDepartment.UseVisualStyleBackColor = true;
+            this.btnUpdateDepartment.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnUpdateEmployee
             // 
@@ -326,8 +342,10 @@
             this.btnDetailOfCompany.Name = "btnDetailOfCompany";
             this.btnDetailOfCompany.Size = new System.Drawing.Size(103, 23);
             this.btnDetailOfCompany.TabIndex = 4;
+            this.btnDetailOfCompany.Tag = "0";
             this.btnDetailOfCompany.Text = "Zobraziť firmu";
             this.btnDetailOfCompany.UseVisualStyleBackColor = true;
+            this.btnDetailOfCompany.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // btnDetailOfDivision
             // 
@@ -335,8 +353,10 @@
             this.btnDetailOfDivision.Name = "btnDetailOfDivision";
             this.btnDetailOfDivision.Size = new System.Drawing.Size(103, 23);
             this.btnDetailOfDivision.TabIndex = 5;
+            this.btnDetailOfDivision.Tag = "1";
             this.btnDetailOfDivision.Text = "Zobraziť divíziu";
             this.btnDetailOfDivision.UseVisualStyleBackColor = true;
+            this.btnDetailOfDivision.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // btnDetailOfProject
             // 
@@ -344,8 +364,10 @@
             this.btnDetailOfProject.Name = "btnDetailOfProject";
             this.btnDetailOfProject.Size = new System.Drawing.Size(103, 23);
             this.btnDetailOfProject.TabIndex = 6;
+            this.btnDetailOfProject.Tag = "2";
             this.btnDetailOfProject.Text = "Zobraziť projekt";
             this.btnDetailOfProject.UseVisualStyleBackColor = true;
+            this.btnDetailOfProject.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // btnDetailOfDepartment
             // 
@@ -353,8 +375,10 @@
             this.btnDetailOfDepartment.Name = "btnDetailOfDepartment";
             this.btnDetailOfDepartment.Size = new System.Drawing.Size(103, 23);
             this.btnDetailOfDepartment.TabIndex = 6;
+            this.btnDetailOfDepartment.Tag = "3";
             this.btnDetailOfDepartment.Text = "Zobraziť oddelenie";
             this.btnDetailOfDepartment.UseVisualStyleBackColor = true;
+            this.btnDetailOfDepartment.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // btnDetailOfEmployee
             // 
@@ -367,43 +391,51 @@
             // 
             // btnDeleteCompany
             // 
-            this.btnDeleteCompany.Location = new System.Drawing.Point(32, 109);
+            this.btnDeleteCompany.Location = new System.Drawing.Point(141, 80);
             this.btnDeleteCompany.Name = "btnDeleteCompany";
             this.btnDeleteCompany.Size = new System.Drawing.Size(103, 23);
             this.btnDeleteCompany.TabIndex = 5;
+            this.btnDeleteCompany.Tag = "0";
             this.btnDeleteCompany.Text = "Zmazať firmu";
             this.btnDeleteCompany.UseVisualStyleBackColor = true;
+            this.btnDeleteCompany.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnDeleteDivision
             // 
-            this.btnDeleteDivision.Location = new System.Drawing.Point(32, 109);
+            this.btnDeleteDivision.Location = new System.Drawing.Point(141, 80);
             this.btnDeleteDivision.Name = "btnDeleteDivision";
             this.btnDeleteDivision.Size = new System.Drawing.Size(103, 23);
             this.btnDeleteDivision.TabIndex = 6;
+            this.btnDeleteDivision.Tag = "1";
             this.btnDeleteDivision.Text = "Zmazať divíziu";
             this.btnDeleteDivision.UseVisualStyleBackColor = true;
+            this.btnDeleteDivision.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnDeleteProject
             // 
-            this.btnDeleteProject.Location = new System.Drawing.Point(32, 109);
+            this.btnDeleteProject.Location = new System.Drawing.Point(141, 80);
             this.btnDeleteProject.Name = "btnDeleteProject";
             this.btnDeleteProject.Size = new System.Drawing.Size(103, 23);
             this.btnDeleteProject.TabIndex = 7;
+            this.btnDeleteProject.Tag = "2";
             this.btnDeleteProject.Text = "Zmazať projekt";
             this.btnDeleteProject.UseVisualStyleBackColor = true;
+            this.btnDeleteProject.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnDeleteDepartment
             // 
-            this.btnDeleteDepartment.Location = new System.Drawing.Point(32, 109);
+            this.btnDeleteDepartment.Location = new System.Drawing.Point(141, 80);
             this.btnDeleteDepartment.Name = "btnDeleteDepartment";
             this.btnDeleteDepartment.Size = new System.Drawing.Size(103, 23);
             this.btnDeleteDepartment.TabIndex = 7;
+            this.btnDeleteDepartment.Tag = "3";
             this.btnDeleteDepartment.Text = "Zmazať oddelenie";
             this.btnDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDeleteDepartment.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnDeleteEmployee
             // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(32, 109);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(170, 80);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(132, 23);
             this.btnDeleteEmployee.TabIndex = 8;
@@ -414,7 +446,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 653);
+            this.ClientSize = new System.Drawing.Size(1426, 653);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlProjects);
