@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrganizationalStructure.Data.Repositories
 {
-    class UserRepository
+    class SectionRepository
     {
     }
 }
