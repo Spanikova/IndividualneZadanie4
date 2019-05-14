@@ -293,6 +293,7 @@
             this.btnDetailOfEmployee.TabIndex = 7;
             this.btnDetailOfEmployee.Text = "Zobraziť zamestnanca";
             this.btnDetailOfEmployee.UseVisualStyleBackColor = true;
+            this.btnDetailOfEmployee.Click += new System.EventHandler(this.btnDetailOfEmployee_Click);
             // 
             // btnUpdateEmployee
             // 

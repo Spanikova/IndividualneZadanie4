@@ -177,6 +177,14 @@ namespace OrganizationalStructure
                 newForm.ShowDialog();
             }
         }
+
+        private void btnDetailOfEmployee_Click(object sender, EventArgs e)
+        {
+            using (FrmViewEmployee newForm = new FrmViewEmployee())
+            {
+                newForm.ShowDialog();
+            }
+        }
     }
 }
 

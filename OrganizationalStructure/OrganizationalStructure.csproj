@@ -82,6 +82,12 @@
     <Compile Include="FrmUpdateSection.Designer.cs">
       <DependentUpon>FrmUpdateSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewEmployee.Designer.cs">
+      <DependentUpon>FrmViewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\OrgLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateSection.resx">
       <DependentUpon>FrmUpdateSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewEmployee.resx">
+      <DependentUpon>FrmViewEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
