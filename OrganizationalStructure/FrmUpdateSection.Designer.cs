@@ -50,6 +50,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(154, 20);
             this.txtName.TabIndex = 4;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // lblCode
             // 
@@ -76,6 +77,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(37, 20);
             this.txtCode.TabIndex = 16;
+            this.txtCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtCode_Validating);
             // 
             // lblManager
             // 

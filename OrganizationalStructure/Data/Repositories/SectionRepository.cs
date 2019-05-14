@@ -95,7 +95,43 @@ namespace OrganizationalStructure.Data.Repositories
                 {
                     connection.Open();
                     string sqlQuery = @"SELECT ID, Name, Code, OrganizationalLevel, ManagerID, SuperiorSectionID
-                                    FROM Sections WHERE Code LIKE '' + @CompanyCode + '%'";
+                                    FROM Sections WHERE Code LIKE '' + @companyCode + '%'";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.Add("@companyCode", SqlDbType.NVarChar).Value = companyCode;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Section section = new Section();
+                            section.ID = reader.GetInt32(0);
+                            section.Name = reader.GetString(1);
+                            section.Code = reader.GetString(2);
+                            section.OrganizationalLevel = (OrganizationalLevel)reader.GetInt32(3);
+                            section.ManagerID = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4);
+                            section.SuperiorSectionID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5);
+                            sections.Add(section);
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                }
+                return sections;
+            }
+        }
+
+        public List<Section> GetDepartmentsByCompany(string companyCode)
+        {
+            List<Section> sections = new List<Section>();
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sqlQuery = @"SELECT ID, Name, Code, OrganizationalLevel, ManagerID, SuperiorSectionID
+                                       FROM Sections WHERE Code LIKE '' + @companyCode + '%' AND OrganizationalLevel = 3";
                     SqlCommand command = new SqlCommand(sqlQuery, connection);
                     command.Parameters.Add("@companyCode", SqlDbType.NVarChar).Value = companyCode;
                     using (SqlDataReader reader = command.ExecuteReader())

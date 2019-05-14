@@ -49,44 +49,6 @@ namespace OrganizationalStructure.Data.Repositories
             }
         }
 
-        public List<Employee> GetEmployeesOfCompany(string companyCode)
-        {
-            List<Employee> employees = new List<Employee>();
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string sqlQuery = @"SELECT ID, FirstName, LastName, Title, Phone, Email, DepartmentCode 
-                                        FROM Employees
-                                        WHERE DepartmentCode LIKE '' + @CompanyCode + '%'";
-                    SqlCommand command = new SqlCommand(sqlQuery, connection);
-                    command.Parameters.Add("@companyCode", SqlDbType.NVarChar).Value = companyCode;
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Employee employee = new Employee();
-                            employee.ID = reader.GetInt32(0);
-                            employee.FirstName = reader.GetString(1);
-                            employee.LastName = reader.GetString(2);
-                            employee.Title = reader.IsDBNull(3) ? null : reader.GetString(3);
-                            employee.Phone = reader.GetString(4);
-                            employee.Email = reader.GetString(5);
-                            employee.DepartmentCode = reader.IsDBNull(6) ? null : reader.GetString(6);
-                            employees.Add(employee);
-                        }
-                    }
-                }
-                catch (SqlException e)
-                {
-                    Debug.WriteLine(e.StackTrace);
-                    Debug.WriteLine(e.Message);
-                }
-                return employees;
-            }
-        }
-
         public List<Employee> GetAllEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -161,6 +123,33 @@ namespace OrganizationalStructure.Data.Repositories
                     Debug.WriteLine(e.StackTrace);
                     Debug.WriteLine(e.Message);
                     return null;
+                }
+            }
+        }
+
+        public bool InsertEmployee(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sqlQuery = @"INSERT INTO Employees (FirstName, LastName, Title, Phone, Email, DepartmentCode)
+                                        VALUES (@name, @lastName, @title, @phone, @email, @departmentCode)";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = employee.FirstName;
+                    command.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employee.LastName;
+                    command.Parameters.Add("@title", SqlDbType.NVarChar).Value = employee.Title ?? null;
+                    command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = employee.Phone;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = employee.Email;
+                    command.Parameters.Add("@departmentCode", SqlDbType.NVarChar).Value = employee.DepartmentCode;
+                    return (command.ExecuteNonQuery() > 0);
+                }
+                catch (SqlException e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                    return false;
                 }
             }
         }

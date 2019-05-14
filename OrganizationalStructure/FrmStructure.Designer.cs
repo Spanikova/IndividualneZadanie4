@@ -278,7 +278,7 @@
             // 
             // btnDeleteEmployee
             // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(191, 42);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(334, 42);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(132, 23);
             this.btnDeleteEmployee.TabIndex = 8;
@@ -287,7 +287,7 @@
             // 
             // btnDetailOfEmployee
             // 
-            this.btnDetailOfEmployee.Location = new System.Drawing.Point(481, 42);
+            this.btnDetailOfEmployee.Location = new System.Drawing.Point(40, 42);
             this.btnDetailOfEmployee.Name = "btnDetailOfEmployee";
             this.btnDetailOfEmployee.Size = new System.Drawing.Size(132, 23);
             this.btnDetailOfEmployee.TabIndex = 7;
@@ -296,7 +296,7 @@
             // 
             // btnUpdateEmployee
             // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(35, 42);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(187, 42);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Size = new System.Drawing.Size(132, 23);
             this.btnUpdateEmployee.TabIndex = 6;
@@ -305,12 +305,13 @@
             // 
             // btnEmployees
             // 
-            this.btnEmployees.Location = new System.Drawing.Point(343, 42);
+            this.btnEmployees.Location = new System.Drawing.Point(482, 42);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(132, 23);
             this.btnEmployees.TabIndex = 2;
             this.btnEmployees.Text = "Nový zamestnanec";
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // pnlSectionBtns
             // 

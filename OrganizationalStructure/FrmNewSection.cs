@@ -21,7 +21,6 @@ namespace OrganizationalStructure
         {
             InitializeComponent();
             FillCmbSectionType();
-            
         }
 
         private void FillCmbSectionType()
@@ -64,20 +63,38 @@ namespace OrganizationalStructure
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Section section = new Section();
-            section.Name = txtName.Text;
-            section.Code = $"{lblCode.Text}{txtCode.Text}";
-            section.OrganizationalLevel = (OrganizationalLevel) cmbSectionType.SelectedValue;
-            section.SuperiorSectionID = (cmbSuperiorSection.SelectedValue == null) ? null : (int?)((Section)cmbSuperiorSection.SelectedValue).ID;
-            if (_logic.InsertSection(section))
+            if (ValidateChildren())
             {
-                Close();
+                Section section = new Section();
+                section.Name = txtName.Text;
+                section.Code = $"{lblCode.Text}{txtCode.Text}";
+                section.OrganizationalLevel = (OrganizationalLevel)cmbSectionType.SelectedValue;
+                section.SuperiorSectionID = (cmbSuperiorSection.SelectedValue == null) ? null : (int?)((Section)cmbSuperiorSection.SelectedValue).ID;
+                if (_logic.InsertSection(section))
+                {
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vloženie sekcie nebolo úspešné\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Length == 0)
             {
-                MessageBox.Show("Vloženie sekcie nebolo úspešné\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
             }
-            
+        }
+
+        private void txtCode_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCode.Text.Length != 2)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

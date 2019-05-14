@@ -58,17 +58,20 @@ namespace OrganizationalStructure
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Section section = (Section)cmbSections.SelectedValue;
-            section.Name = txtName.Text;
-            section.Code = $"{lblCode.Text}{txtCode.Text}";
-            section.ManagerID = ((Employee)cmbManagers.SelectedValue).ID;
-            if (_logic.UpdateSection(section))
+            if (ValidateChildren())
             {
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Úprava sekcie nebola úspešná\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Section section = (Section)cmbSections.SelectedValue;
+                section.Name = txtName.Text;
+                section.Code = $"{lblCode.Text}{txtCode.Text}";
+                section.ManagerID = ((Employee)cmbManagers.SelectedValue).ID;
+                if (_logic.UpdateSection(section))
+                {
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Úprava sekcie nebola úspešná\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -79,6 +82,22 @@ namespace OrganizationalStructure
             if (_logic.DeleteSection(sectionCode, orgLevel))
             {
                 Close();
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Length == 0)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtCode_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCode.Text.Length != 2)
+            {
+                e.Cancel = true;
             }
         }
     }

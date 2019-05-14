@@ -21,6 +21,7 @@ namespace OrganizationalStructure
         {
             InitializeComponent();
             FillDtGrdSection(dtGrdCompanies, OrganizationalLevel.Company, null);
+            EnablingBtns();
         }
 
         #region Buttons
@@ -70,6 +71,7 @@ namespace OrganizationalStructure
             dataGridView.Columns["Code"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["Name"].HeaderText = "Názov";
             dataGridView.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            EnablingBtns();
         }
 
         private void FillDtGrdEmployees(string departmentCode)
@@ -153,6 +155,28 @@ namespace OrganizationalStructure
         }
         #endregion
 
+        private void EnablingBtns()
+        {
+            if (dtGrdCompanies.Rows.Count > 0)
+            {
+                dtGrdCompanies.CurrentCell = dtGrdCompanies.Rows[0].Cells["Name"];
+                btnUpdateSection.Enabled = true;
+                btnDetailOfSection.Enabled = true;
+            }
+            else
+            {
+                btnUpdateSection.Enabled = false;
+                btnDetailOfSection.Enabled = false;
+            }
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            using (FrmNewEmployee newForm = new FrmNewEmployee())
+            {
+                newForm.ShowDialog();
+            }
+        }
     }
 }
 
