@@ -38,11 +38,6 @@ namespace OrganizationalStructure
             FillDtGrdSection(dtGrdCompanies, OrganizationalLevel.Company, null);
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void BtnNew_Click(object sender, EventArgs e)
         {
             using (FrmNewSection newForm = new FrmNewSection())
@@ -74,13 +69,14 @@ namespace OrganizationalStructure
             dataGridView.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void FillDtGrdEmployees(int departmentId)
+        private void FillDtGrdEmployees(string departmentCode)
         {
-            dtGrdEmployees.DataSource = _logic.GetEmployees(departmentId);
+            dtGrdEmployees.DataSource = _logic.GetEmployees(departmentCode);
             dtGrdEmployees.Columns["ID"].Visible = false;
             dtGrdEmployees.Columns["Phone"].Visible = false;
             dtGrdEmployees.Columns["Email"].Visible = false;
-            dtGrdEmployees.Columns["DepartmentID"].Visible = false;
+            dtGrdEmployees.Columns["DepartmentCode"].Visible = false;
+            dtGrdEmployees.Columns["FullName"].Visible = false;
             dtGrdEmployees.Columns["FirstName"].HeaderText = "Meno";
             dtGrdEmployees.Columns["FirstName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtGrdEmployees.Columns["LastName"].HeaderText = "Priezvisko";
@@ -112,7 +108,7 @@ namespace OrganizationalStructure
             employee.Title = (dtGrdEmployees.SelectedCells[3].Value == null) ? null : dtGrdEmployees.SelectedCells[3].Value.ToString();
             employee.Phone = dtGrdEmployees.SelectedCells[4].Value.ToString();
             employee.Email = dtGrdEmployees.SelectedCells[5].Value.ToString();
-            employee.DepartmentID = (int)dtGrdEmployees.SelectedCells[6].Value;
+            employee.DepartmentCode = dtGrdEmployees.SelectedCells[6].Value.ToString();
             return employee;
         }
         #endregion
@@ -124,7 +120,7 @@ namespace OrganizationalStructure
             FillDtGrdSection(dtGrdDivisions, OrganizationalLevel.Division, section.ID);
             FillDtGrdSection(dtGrdProjects, OrganizationalLevel.Project, section.ID);
             FillDtGrdSection(dtGrdDepartments, OrganizationalLevel.Department, section.ID);
-            FillDtGrdEmployees(section.ID);
+            FillDtGrdEmployees(section.Code);
         }
 
         private void dtGrdDivisions_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -132,20 +128,20 @@ namespace OrganizationalStructure
             Section section = ReadSectionFromDtGrd((DataGridView)sender);
             FillDtGrdSection(dtGrdProjects, OrganizationalLevel.Project, section.ID);
             FillDtGrdSection(dtGrdDepartments, OrganizationalLevel.Department, section.ID);
-            FillDtGrdEmployees(section.ID);
+            FillDtGrdEmployees(section.Code);
         }
 
         private void dtGrdProjects_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Section section = ReadSectionFromDtGrd((DataGridView)sender);
             FillDtGrdSection(dtGrdDepartments, OrganizationalLevel.Department, section.ID);
-            FillDtGrdEmployees(section.ID);
+            FillDtGrdEmployees(section.Code);
         }
 
         private void dtGrdDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Section section = ReadSectionFromDtGrd((DataGridView)sender);
-            FillDtGrdEmployees(section.ID);
+            FillDtGrdEmployees(section.Code);
         }
 
         private void dtGrdEmployees_CellClick(object sender, DataGridViewCellEventArgs e)

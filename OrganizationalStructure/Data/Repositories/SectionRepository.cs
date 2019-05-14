@@ -136,7 +136,7 @@ namespace OrganizationalStructure.Data.Repositories
                     command.Parameters.Add("@code", SqlDbType.NVarChar).Value = section.Code;
                     command.Parameters.Add("@orgLevel", SqlDbType.Int).Value = (int) section.OrganizationalLevel;
                     command.Parameters.Add("@superiorSectionId", SqlDbType.Int).Value = (object)section.SuperiorSectionID ?? DBNull.Value  ;
-                    return (command.ExecuteNonQuery() > 1);
+                    return (command.ExecuteNonQuery() > 0);
                 }
                 catch (SqlException e)
                 {
@@ -164,7 +164,7 @@ namespace OrganizationalStructure.Data.Repositories
                     command.Parameters.Add("@code", SqlDbType.NVarChar).Value = section.Code;
                     command.Parameters.Add("@managerId", SqlDbType.Int).Value = (int)section.ManagerID;
                     command.Parameters.Add("@id", SqlDbType.Int).Value = section.ID;
-                    return (command.ExecuteNonQuery() > 1);
+                    return command.ExecuteNonQuery() > 0;
                 }
                 catch (SqlException e)
                 {
@@ -175,5 +175,49 @@ namespace OrganizationalStructure.Data.Repositories
             }
         }
 
+        public bool DeleteSection(string sectionCode, OrganizationalLevel orgLevel)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                string sqlQueryDelete = @"DELETE FROM Sections WHERE Code LIKE '' + @sectionCode + '%' AND OrganizationalLevel = @counter";
+                string sqlQueryUpdate = @"UPDATE Employees SET DepartmentCode = NULL WHERE DepartmentCode LIKE '' + @sectionCode + '%'";
+                try
+                {
+                    connection.Open();
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.Transaction = transaction;
+                    command.Parameters.Add("@sectionCode", SqlDbType.NVarChar).Value = sectionCode;
+                    command.Parameters.Add("@counter", SqlDbType.Int).Value = 0;
+                    try
+                    {
+                        command.CommandText = sqlQueryUpdate;
+                        command.ExecuteNonQuery();
+                        for (int i = (int)OrganizationalLevel.Department; i >= (int)orgLevel; i--)
+                        {
+                            command.Parameters["@counter"].Value = i;
+                            command.CommandText = sqlQueryDelete;
+                            command.ExecuteNonQuery();
+                        }
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.StackTrace);
+                        Debug.WriteLine(e.Message);
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

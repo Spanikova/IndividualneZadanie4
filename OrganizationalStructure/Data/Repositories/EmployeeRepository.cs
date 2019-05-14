@@ -12,7 +12,7 @@ namespace OrganizationalStructure.Data.Repositories
 {
     public class EmployeeRepository
     {
-        public List<Employee> GetEmployeesOfDepartment(int departmentId)
+        public List<Employee> GetEmployeesOfDepartment(string departmentCode)
         {
             List<Employee> employees = new List<Employee>();
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
@@ -20,10 +20,10 @@ namespace OrganizationalStructure.Data.Repositories
                 try
                 {
                     connection.Open();
-                    string sqlQuery = @"SELECT ID, FirstName, LastName, Title, Phone, Email, DepartmentID 
-                                        FROM Employees WHERE DepartmentID = @departmentId";
+                    string sqlQuery = @"SELECT ID, FirstName, LastName, Title, Phone, Email, DepartmentCode 
+                                        FROM Employees WHERE DepartmentCode = @departmentCode";
                     SqlCommand command = new SqlCommand(sqlQuery, connection);
-                    command.Parameters.Add("@departmentId", SqlDbType.Int).Value = departmentId;
+                    command.Parameters.Add("@departmentCode", SqlDbType.NVarChar).Value = departmentCode;
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -35,7 +35,7 @@ namespace OrganizationalStructure.Data.Repositories
                             employee.Title = reader.IsDBNull(3) ? null : reader.GetString(3);
                             employee.Phone = reader.GetString(4);
                             employee.Email = reader.GetString(5);
-                            employee.DepartmentID = reader.GetInt32(6);
+                            employee.DepartmentCode = reader.GetString(6);
                             employees.Add(employee);
                         }
                     }
@@ -57,10 +57,9 @@ namespace OrganizationalStructure.Data.Repositories
                 try
                 {
                     connection.Open();
-                    string sqlQuery = @"SELECT E.ID, FirstName, LastName, Title, Phone, Email, DepartmentID 
-                                        FROM Employees AS E
-                                        JOIN Sections AS S ON E.DepartmentID = S.ID 
-                                        WHERE S.Code LIKE '' + @CompanyCode + '%'";
+                    string sqlQuery = @"SELECT E.ID, FirstName, LastName, Title, Phone, Email, DepartmentCode 
+                                        FROM Employees
+                                        WHERE DepartmentCode LIKE '' + @CompanyCode + '%'";
                     SqlCommand command = new SqlCommand(sqlQuery, connection);
                     command.Parameters.Add("@companyCode", SqlDbType.NVarChar).Value = companyCode;
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -74,7 +73,7 @@ namespace OrganizationalStructure.Data.Repositories
                             employee.Title = reader.IsDBNull(3) ? null : reader.GetString(3);
                             employee.Phone = reader.GetString(4);
                             employee.Email = reader.GetString(5);
-                            employee.DepartmentID = reader.GetInt32(6);
+                            employee.DepartmentCode = reader.GetString(6);
                             employees.Add(employee);
                         }
                     }

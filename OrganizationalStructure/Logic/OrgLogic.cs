@@ -29,9 +29,9 @@ namespace OrganizationalStructure.Logic
             return _sectionRepository.GetSectionsByCompany(companyCode);
         }
 
-        public List<Employee> GetEmployees(int departmentId)
+        public List<Employee> GetEmployees(string departmentCode)
         {
-            return _employeeRepository.GetEmployeesOfDepartment(departmentId);
+            return _employeeRepository.GetEmployeesOfDepartment(departmentCode);
         }
 
         public List<Employee> GetEmployeesOfCompany(string companyCode)
@@ -52,6 +52,11 @@ namespace OrganizationalStructure.Logic
         public bool UpdateSection(Section section)
         {
             return _sectionRepository.UpdateSection(section);
+        }
+
+        public bool DeleteSection(string sectionCode, OrganizationalLevel orglevel)
+        {
+            return _sectionRepository.DeleteSection(sectionCode, orglevel);
         }
     }
 }

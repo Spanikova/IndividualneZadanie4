@@ -61,7 +61,24 @@ namespace OrganizationalStructure
             section.Name = txtName.Text;
             section.Code = $"{lblCode.Text}{txtCode.Text}";
             section.ManagerID = ((Employee)cmbManagers.SelectedValue).ID;
-            _logic.UpdateSection(section);
+            if (_logic.UpdateSection(section))
+            {
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Úprava sekcie nebola úspešná\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDeleteSection_Click(object sender, EventArgs e)
+        {
+            string sectionCode = ((Section)cmbSections.SelectedValue).Code;
+            OrganizationalLevel orgLevel = ((Section)cmbSections.SelectedValue).OrganizationalLevel;
+            if (_logic.DeleteSection(sectionCode, orgLevel))
+            {
+                Close();
+            }
         }
     }
 }

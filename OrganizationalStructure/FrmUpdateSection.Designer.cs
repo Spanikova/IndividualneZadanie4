@@ -164,6 +164,7 @@
             this.btnDeleteSection.TabIndex = 25;
             this.btnDeleteSection.Text = "Zmazať sekciu";
             this.btnDeleteSection.UseVisualStyleBackColor = true;
+            this.btnDeleteSection.Click += new System.EventHandler(this.btnDeleteSection_Click);
             // 
             // FrmUpdateSection
             // 

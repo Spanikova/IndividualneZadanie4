@@ -69,8 +69,15 @@ namespace OrganizationalStructure
             section.Code = $"{lblCode.Text}{txtCode.Text}";
             section.OrganizationalLevel = (OrganizationalLevel) cmbSectionType.SelectedValue;
             section.SuperiorSectionID = (cmbSuperiorSection.SelectedValue == null) ? null : (int?)((Section)cmbSuperiorSection.SelectedValue).ID;
-            _logic.InsertSection(section);
-            Close();
+            if (_logic.InsertSection(section))
+            {
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Vloženie sekcie nebolo úspešné\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
     }
 }
