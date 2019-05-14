@@ -83,5 +83,10 @@ namespace OrganizationalStructure.Logic
         {
             return _employeeRepository.UpdateEmployee(employee);
         }
+
+        public bool DeleteEmployee(int employeeId)
+        {
+            return _employeeRepository.DeleteEmployee(employeeId);
+        }
     }
 }

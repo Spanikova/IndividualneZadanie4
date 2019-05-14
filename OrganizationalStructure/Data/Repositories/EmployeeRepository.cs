@@ -187,5 +187,45 @@ namespace OrganizationalStructure.Data.Repositories
                 }
             }
         }
+
+        public bool DeleteEmployee(int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                string sqlQueryDelete = @"DELETE FROM Employees WHERE ID =  @id";
+                string sqlQueryUpdate = @"UPDATE Sections SET ManagerID = NULL WHERE ManagerID = @id";
+                try
+                {
+                    connection.Open();
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.Transaction = transaction;
+                    command.Parameters.Add("@id", SqlDbType.Int).Value = employeeId;
+                    try
+                    {
+                        command.CommandText = sqlQueryUpdate;
+                        command.ExecuteNonQuery();
+                        command.CommandText = sqlQueryDelete;
+                        command.ExecuteNonQuery();
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e.StackTrace);
+                        Debug.WriteLine(e.Message);
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

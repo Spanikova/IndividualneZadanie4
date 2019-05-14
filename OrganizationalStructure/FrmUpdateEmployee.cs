@@ -92,5 +92,18 @@ namespace OrganizationalStructure
                 Close();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int employeeId = ((Employee)cmbEmployees.SelectedValue).ID;
+            if (_logic.DeleteEmployee(employeeId))
+            {
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Vymazanie nebolo úspešné.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

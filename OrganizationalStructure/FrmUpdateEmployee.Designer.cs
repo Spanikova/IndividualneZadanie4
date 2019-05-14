@@ -216,6 +216,7 @@
             this.btnDelete.TabIndex = 33;
             this.btnDelete.Text = "Zmazať";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // FrmUpdateEmployee
             // 

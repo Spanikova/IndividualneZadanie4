@@ -70,10 +70,10 @@
             // lblCompanies
             // 
             this.lblCompanies.AutoSize = true;
-            this.lblCompanies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblCompanies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCompanies.Location = new System.Drawing.Point(28, 13);
             this.lblCompanies.Name = "lblCompanies";
-            this.lblCompanies.Size = new System.Drawing.Size(47, 20);
+            this.lblCompanies.Size = new System.Drawing.Size(52, 20);
             this.lblCompanies.TabIndex = 0;
             this.lblCompanies.Text = "Firmy";
             // 
@@ -110,7 +110,7 @@
             // 
             this.pnlCompanies.Controls.Add(this.dtGrdCompanies);
             this.pnlCompanies.Controls.Add(this.lblCompanies);
-            this.pnlCompanies.Location = new System.Drawing.Point(12, 40);
+            this.pnlCompanies.Location = new System.Drawing.Point(12, 127);
             this.pnlCompanies.Name = "pnlCompanies";
             this.pnlCompanies.Size = new System.Drawing.Size(245, 448);
             this.pnlCompanies.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             this.pnlDivisions.Controls.Add(this.dtGrdDivisions);
             this.pnlDivisions.Controls.Add(this.lblDivisions);
-            this.pnlDivisions.Location = new System.Drawing.Point(263, 40);
+            this.pnlDivisions.Location = new System.Drawing.Point(263, 127);
             this.pnlDivisions.Name = "pnlDivisions";
             this.pnlDivisions.Size = new System.Drawing.Size(246, 448);
             this.pnlDivisions.TabIndex = 7;
@@ -169,10 +169,10 @@
             // lblDivisions
             // 
             this.lblDivisions.AutoSize = true;
-            this.lblDivisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDivisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDivisions.Location = new System.Drawing.Point(28, 13);
             this.lblDivisions.Name = "lblDivisions";
-            this.lblDivisions.Size = new System.Drawing.Size(91, 20);
+            this.lblDivisions.Size = new System.Drawing.Size(104, 20);
             this.lblDivisions.TabIndex = 0;
             this.lblDivisions.Text = "Divízie firmy";
             // 
@@ -180,7 +180,7 @@
             // 
             this.pnlProjects.Controls.Add(this.dtGrdProjects);
             this.pnlProjects.Controls.Add(this.lblProjects);
-            this.pnlProjects.Location = new System.Drawing.Point(515, 40);
+            this.pnlProjects.Location = new System.Drawing.Point(515, 127);
             this.pnlProjects.Name = "pnlProjects";
             this.pnlProjects.Size = new System.Drawing.Size(253, 448);
             this.pnlProjects.TabIndex = 8;
@@ -204,10 +204,10 @@
             // lblProjects
             // 
             this.lblProjects.AutoSize = true;
-            this.lblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblProjects.Location = new System.Drawing.Point(28, 13);
             this.lblProjects.Name = "lblProjects";
-            this.lblProjects.Size = new System.Drawing.Size(111, 20);
+            this.lblProjects.Size = new System.Drawing.Size(127, 20);
             this.lblProjects.TabIndex = 0;
             this.lblProjects.Text = "Projekty divízie";
             // 
@@ -215,7 +215,7 @@
             // 
             this.pnlDepartments.Controls.Add(this.dtGrdDepartments);
             this.pnlDepartments.Controls.Add(this.lblDepartments);
-            this.pnlDepartments.Location = new System.Drawing.Point(774, 40);
+            this.pnlDepartments.Location = new System.Drawing.Point(774, 127);
             this.pnlDepartments.Name = "pnlDepartments";
             this.pnlDepartments.Size = new System.Drawing.Size(250, 448);
             this.pnlDepartments.TabIndex = 9;
@@ -239,10 +239,10 @@
             // lblDepartments
             // 
             this.lblDepartments.AutoSize = true;
-            this.lblDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDepartments.Location = new System.Drawing.Point(28, 13);
             this.lblDepartments.Name = "lblDepartments";
-            this.lblDepartments.Size = new System.Drawing.Size(142, 20);
+            this.lblDepartments.Size = new System.Drawing.Size(160, 20);
             this.lblDepartments.TabIndex = 0;
             this.lblDepartments.Text = "Oddelenia projektu";
             // 
@@ -250,7 +250,7 @@
             // 
             this.pnlEmployees.Controls.Add(this.dtGrdEmployees);
             this.pnlEmployees.Controls.Add(this.lblEmployees);
-            this.pnlEmployees.Location = new System.Drawing.Point(1030, 40);
+            this.pnlEmployees.Location = new System.Drawing.Point(1030, 127);
             this.pnlEmployees.Name = "pnlEmployees";
             this.pnlEmployees.Size = new System.Drawing.Size(249, 448);
             this.pnlEmployees.TabIndex = 10;
@@ -274,10 +274,10 @@
             // lblEmployees
             // 
             this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblEmployees.Location = new System.Drawing.Point(28, 13);
             this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(165, 20);
+            this.lblEmployees.Size = new System.Drawing.Size(185, 20);
             this.lblEmployees.TabIndex = 0;
             this.lblEmployees.Text = "Zamestanci oddelenia";
             // 
@@ -324,7 +324,7 @@
             this.pnlSectionBtns.Controls.Add(this.btnDetailOfSection);
             this.pnlSectionBtns.Controls.Add(this.btnNewSection);
             this.pnlSectionBtns.Controls.Add(this.btnUpdateSection);
-            this.pnlSectionBtns.Location = new System.Drawing.Point(62, 512);
+            this.pnlSectionBtns.Location = new System.Drawing.Point(37, 21);
             this.pnlSectionBtns.Name = "pnlSectionBtns";
             this.pnlSectionBtns.Size = new System.Drawing.Size(460, 100);
             this.pnlSectionBtns.TabIndex = 11;
@@ -346,7 +346,7 @@
             this.pnlEmployeesBtns.Controls.Add(this.btnUpdateEmployee);
             this.pnlEmployeesBtns.Controls.Add(this.btnEmployees);
             this.pnlEmployeesBtns.Controls.Add(this.btnDetailOfEmployee);
-            this.pnlEmployeesBtns.Location = new System.Drawing.Point(620, 512);
+            this.pnlEmployeesBtns.Location = new System.Drawing.Point(595, 21);
             this.pnlEmployeesBtns.Name = "pnlEmployeesBtns";
             this.pnlEmployeesBtns.Size = new System.Drawing.Size(603, 100);
             this.pnlEmployeesBtns.TabIndex = 12;
@@ -365,7 +365,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 653);
+            this.ClientSize = new System.Drawing.Size(1285, 608);
             this.Controls.Add(this.pnlEmployeesBtns);
             this.Controls.Add(this.pnlSectionBtns);
             this.Controls.Add(this.pnlEmployees);
