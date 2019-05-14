@@ -32,7 +32,6 @@
             this.dtGrdCompanies = new System.Windows.Forms.DataGridView();
             this.btnNewSection = new System.Windows.Forms.Button();
             this.pnlCompanies = new System.Windows.Forms.Panel();
-            this.btnDeleteSection = new System.Windows.Forms.Button();
             this.btnDetailOfSection = new System.Windows.Forms.Button();
             this.btnUpdateSection = new System.Windows.Forms.Button();
             this.pnlDivisions = new System.Windows.Forms.Panel();
@@ -45,11 +44,11 @@
             this.dtGrdDepartments = new System.Windows.Forms.DataGridView();
             this.lblDepartments = new System.Windows.Forms.Label();
             this.pnlEmployees = new System.Windows.Forms.Panel();
+            this.dtGrdEmployees = new System.Windows.Forms.DataGridView();
+            this.lblEmployees = new System.Windows.Forms.Label();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnDetailOfEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
-            this.dtGrdEmployees = new System.Windows.Forms.DataGridView();
-            this.lblEmployees = new System.Windows.Forms.Label();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.pnlSectionBtns = new System.Windows.Forms.Panel();
             this.lblSections = new System.Windows.Forms.Label();
@@ -115,17 +114,6 @@
             this.pnlCompanies.Size = new System.Drawing.Size(245, 448);
             this.pnlCompanies.TabIndex = 6;
             // 
-            // btnDeleteSection
-            // 
-            this.btnDeleteSection.Location = new System.Drawing.Point(417, 42);
-            this.btnDeleteSection.Name = "btnDeleteSection";
-            this.btnDeleteSection.Size = new System.Drawing.Size(103, 23);
-            this.btnDeleteSection.TabIndex = 5;
-            this.btnDeleteSection.Tag = "0";
-            this.btnDeleteSection.Text = "Zmazať";
-            this.btnDeleteSection.UseVisualStyleBackColor = true;
-            this.btnDeleteSection.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // btnDetailOfSection
             // 
             this.btnDetailOfSection.Location = new System.Drawing.Point(39, 42);
@@ -144,7 +132,7 @@
             this.btnUpdateSection.Size = new System.Drawing.Size(103, 23);
             this.btnUpdateSection.TabIndex = 3;
             this.btnUpdateSection.Tag = "0";
-            this.btnUpdateSection.Text = "Upraviť";
+            this.btnUpdateSection.Text = "Upraviť / Zmazať";
             this.btnUpdateSection.UseVisualStyleBackColor = true;
             this.btnUpdateSection.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
@@ -259,8 +247,34 @@
             this.pnlEmployees.Controls.Add(this.lblEmployees);
             this.pnlEmployees.Location = new System.Drawing.Point(1030, 40);
             this.pnlEmployees.Name = "pnlEmployees";
-            this.pnlEmployees.Size = new System.Drawing.Size(283, 448);
+            this.pnlEmployees.Size = new System.Drawing.Size(249, 448);
             this.pnlEmployees.TabIndex = 10;
+            // 
+            // dtGrdEmployees
+            // 
+            this.dtGrdEmployees.AllowUserToAddRows = false;
+            this.dtGrdEmployees.AllowUserToDeleteRows = false;
+            this.dtGrdEmployees.AllowUserToResizeColumns = false;
+            this.dtGrdEmployees.AllowUserToResizeRows = false;
+            this.dtGrdEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrdEmployees.Location = new System.Drawing.Point(0, 51);
+            this.dtGrdEmployees.Name = "dtGrdEmployees";
+            this.dtGrdEmployees.ReadOnly = true;
+            this.dtGrdEmployees.RowHeadersVisible = false;
+            this.dtGrdEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGrdEmployees.Size = new System.Drawing.Size(236, 397);
+            this.dtGrdEmployees.TabIndex = 1;
+            this.dtGrdEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdEmployees_CellClick);
+            // 
+            // lblEmployees
+            // 
+            this.lblEmployees.AutoSize = true;
+            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmployees.Location = new System.Drawing.Point(28, 13);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(165, 20);
+            this.lblEmployees.TabIndex = 0;
+            this.lblEmployees.Text = "Zamestanci oddelenia";
             // 
             // btnDeleteEmployee
             // 
@@ -289,32 +303,6 @@
             this.btnUpdateEmployee.Text = "Upraviť zamestnanca";
             this.btnUpdateEmployee.UseVisualStyleBackColor = true;
             // 
-            // dtGrdEmployees
-            // 
-            this.dtGrdEmployees.AllowUserToAddRows = false;
-            this.dtGrdEmployees.AllowUserToDeleteRows = false;
-            this.dtGrdEmployees.AllowUserToResizeColumns = false;
-            this.dtGrdEmployees.AllowUserToResizeRows = false;
-            this.dtGrdEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdEmployees.Location = new System.Drawing.Point(0, 51);
-            this.dtGrdEmployees.Name = "dtGrdEmployees";
-            this.dtGrdEmployees.ReadOnly = true;
-            this.dtGrdEmployees.RowHeadersVisible = false;
-            this.dtGrdEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGrdEmployees.Size = new System.Drawing.Size(270, 397);
-            this.dtGrdEmployees.TabIndex = 1;
-            this.dtGrdEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdEmployees_CellClick);
-            // 
-            // lblEmployees
-            // 
-            this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblEmployees.Location = new System.Drawing.Point(28, 13);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(165, 20);
-            this.lblEmployees.TabIndex = 0;
-            this.lblEmployees.Text = "Zamestanci oddelenia";
-            // 
             // btnEmployees
             // 
             this.btnEmployees.Location = new System.Drawing.Point(343, 42);
@@ -330,11 +318,10 @@
             this.pnlSectionBtns.Controls.Add(this.lblSections);
             this.pnlSectionBtns.Controls.Add(this.btnDetailOfSection);
             this.pnlSectionBtns.Controls.Add(this.btnNewSection);
-            this.pnlSectionBtns.Controls.Add(this.btnDeleteSection);
             this.pnlSectionBtns.Controls.Add(this.btnUpdateSection);
             this.pnlSectionBtns.Location = new System.Drawing.Point(12, 512);
             this.pnlSectionBtns.Name = "pnlSectionBtns";
-            this.pnlSectionBtns.Size = new System.Drawing.Size(561, 100);
+            this.pnlSectionBtns.Size = new System.Drawing.Size(421, 100);
             this.pnlSectionBtns.TabIndex = 11;
             // 
             // lblSections
@@ -354,7 +341,7 @@
             this.pnlEmployeesBtns.Controls.Add(this.btnDeleteEmployee);
             this.pnlEmployeesBtns.Controls.Add(this.btnEmployees);
             this.pnlEmployeesBtns.Controls.Add(this.btnDetailOfEmployee);
-            this.pnlEmployeesBtns.Location = new System.Drawing.Point(630, 512);
+            this.pnlEmployeesBtns.Location = new System.Drawing.Point(624, 512);
             this.pnlEmployeesBtns.Name = "pnlEmployeesBtns";
             this.pnlEmployeesBtns.Size = new System.Drawing.Size(642, 100);
             this.pnlEmployeesBtns.TabIndex = 12;
@@ -372,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 653);
+            this.ClientSize = new System.Drawing.Size(1285, 653);
             this.Controls.Add(this.pnlEmployeesBtns);
             this.Controls.Add(this.pnlSectionBtns);
             this.Controls.Add(this.pnlEmployees);
@@ -429,7 +416,6 @@
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnDetailOfSection;
         private System.Windows.Forms.Button btnDetailOfEmployee;
-        private System.Windows.Forms.Button btnDeleteSection;
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Panel pnlSectionBtns;
         private System.Windows.Forms.Label lblSections;

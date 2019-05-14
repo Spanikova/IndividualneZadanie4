@@ -47,13 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Enums\ActionType.cs" />
+    <Compile Include="Data\Enums\EnumDescriptor.cs" />
     <Compile Include="Data\Repositories\EmployeeRepository.cs" />
     <Compile Include="Data\Repositories\SectionRepository.cs" />
-    <Compile Include="FrmSection.cs">
+    <Compile Include="FrmNewSection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSection.Designer.cs">
-      <DependentUpon>FrmSection.cs</DependentUpon>
+    <Compile Include="FrmNewSection.Designer.cs">
+      <DependentUpon>FrmNewSection.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStructure.cs">
       <SubType>Form</SubType>
@@ -67,8 +68,8 @@
     <Compile Include="Logic\OrganizationalLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmSection.resx">
-      <DependentUpon>FrmSection.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNewSection.resx">
+      <DependentUpon>FrmNewSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStructure.resx">
       <DependentUpon>FrmStructure.cs</DependentUpon>

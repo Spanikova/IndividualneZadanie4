@@ -15,8 +15,6 @@ namespace OrganizationalStructure
 {
     public partial class FrmStructure : Form
     {
-        private OrganizationalLevel _orgLevel;
-        private ActionType _action;
         private OrgStructureLogic _logic = new OrgStructureLogic();
 
         public FrmStructure()
@@ -28,30 +26,26 @@ namespace OrganizationalStructure
         #region Buttons
         private void BtnDetail_Click(object sender, EventArgs e)
         {
-            _orgLevel = (OrganizationalLevel)((Button)sender).Tag;
-            _action = ActionType.Detail;
-            OpenFrmSection(_orgLevel, _action);
+            //OpenFrmSection(ActionType.Detail);
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            _orgLevel = (OrganizationalLevel)((Button)sender).Tag;
-            _action = ActionType.Update;
-            OpenFrmSection(_orgLevel, _action);
+            //OpenFrmSection(ActionType.Update);
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            _orgLevel = (OrganizationalLevel)((Button)sender).Tag;
-            _action = ActionType.Delete;
-            OpenFrmSection(_orgLevel, _action);
+            
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            _orgLevel = (OrganizationalLevel)((Button)sender).Tag;
-            _action = ActionType.New;
-            OpenFrmSection(_orgLevel, _action);
+            using (FrmNewSection newForm = new FrmNewSection())
+            {
+                newForm.ShowDialog();
+            }
+            FillDtGrdSection(dtGrdCompanies, OrganizationalLevel.Company, null);
         }
         #endregion
 
@@ -60,7 +54,7 @@ namespace OrganizationalStructure
         {
             if (level.Equals(OrganizationalLevel.Company))
             {
-                dataGridView.DataSource = _logic.GetCompanies(level);
+                dataGridView.DataSource = _logic.GetSectionsByLevel(level);
             }
             else
             {
@@ -111,7 +105,7 @@ namespace OrganizationalStructure
             employee.ID = (int)dtGrdEmployees.SelectedCells[0].Value;
             employee.FirstName = dtGrdEmployees.SelectedCells[1].Value.ToString();
             employee.LastName = dtGrdEmployees.SelectedCells[2].Value.ToString();
-            employee.Title = dtGrdEmployees.SelectedCells[3].Value.ToString();
+            employee.Title = (dtGrdEmployees.SelectedCells[3].Value == null) ? null : dtGrdEmployees.SelectedCells[3].Value.ToString();
             employee.Phone = dtGrdEmployees.SelectedCells[4].Value.ToString();
             employee.Email = dtGrdEmployees.SelectedCells[5].Value.ToString();
             employee.DepartmentID = (int)dtGrdEmployees.SelectedCells[6].Value;
@@ -155,14 +149,6 @@ namespace OrganizationalStructure
             Employee employee = ReadEmployeeFromDtGrd();
         }
         #endregion
-
-        private void OpenFrmSection(OrganizationalLevel orgLevel, ActionType action)
-        {
-            using (FrmSection newForm = new FrmSection(orgLevel, action))
-            {
-                newForm.ShowDialog();
-            }
-        }
 
     }
 }

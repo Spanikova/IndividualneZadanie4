@@ -13,7 +13,7 @@ namespace OrganizationalStructure.Data.Repositories
 {
     public class SectionRepository
     {
-        public List<Section> GetCompanies(OrganizationalLevel level)
+        public List<Section> GetSectionsByLevel(OrganizationalLevel level)
         {
             List<Section> sections = new List<Section>();
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
@@ -85,6 +85,33 @@ namespace OrganizationalStructure.Data.Repositories
                 return sections;
             }
         }
+
+        public bool InsertSection(Section section)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sqlQuery = @"INSERT INTO Sections (Name, Code, OrganizationalLevel, SuperiorSectionID)
+                                        VALUES (@name, @code, @orgLevel, @superiorSectionId)";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = section.Name;
+                    command.Parameters.Add("@code", SqlDbType.NVarChar).Value = section.Code;
+                    command.Parameters.Add("@orgLevel", SqlDbType.Int).Value = (int) section.OrganizationalLevel;
+                    command.Parameters.Add("@superiorSectionId", SqlDbType.Int).Value = (object)section.SuperiorSectionID ?? DBNull.Value  ;
+                    return (command.ExecuteNonQuery() > 1);
+                }
+                catch (SqlException e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                    return false;
+                }
+            }
+        }
+
+
 
     }
 }

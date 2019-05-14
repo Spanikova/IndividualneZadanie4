@@ -14,9 +14,9 @@ namespace OrganizationalStructure.Logic
         SectionRepository _sectionRepository = new SectionRepository();
         EmployeeRepository _employeeRepository = new EmployeeRepository();
 
-        public List<Section> GetCompanies(OrganizationalLevel level)
+        public List<Section> GetSectionsByLevel(OrganizationalLevel level)
         {
-            return _sectionRepository.GetCompanies(level);
+            return _sectionRepository.GetSectionsByLevel(level);
         }
 
         public List<Section> GetSections(OrganizationalLevel level, int? superiorSectionId)
@@ -32,6 +32,16 @@ namespace OrganizationalStructure.Logic
         public List<Employee> GetEmployeesOfCompany(string companyCode)
         {
             return _employeeRepository.GetEmployeesOfCompany(companyCode);
+        }
+
+        public Dictionary<OrganizationalLevel, string> GetOrganizationalLevels()
+        {
+            return EnumDescriptor.GetEnumMembers<OrganizationalLevel>();
+        }
+
+        public bool InsertSection(Section section)
+        {
+            return _sectionRepository.InsertSection(section);
         }
     }
 }
