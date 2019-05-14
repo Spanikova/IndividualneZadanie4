@@ -46,7 +46,6 @@
             this.pnlEmployees = new System.Windows.Forms.Panel();
             this.dtGrdEmployees = new System.Windows.Forms.DataGridView();
             this.lblEmployees = new System.Windows.Forms.Label();
-            this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnDetailOfEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
@@ -96,13 +95,15 @@
             // 
             // btnNewSection
             // 
-            this.btnNewSection.Location = new System.Drawing.Point(286, 42);
+            this.btnNewSection.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNewSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNewSection.Location = new System.Drawing.Point(329, 42);
             this.btnNewSection.Name = "btnNewSection";
-            this.btnNewSection.Size = new System.Drawing.Size(103, 23);
+            this.btnNewSection.Size = new System.Drawing.Size(103, 36);
             this.btnNewSection.TabIndex = 2;
             this.btnNewSection.Tag = "0";
             this.btnNewSection.Text = "Nová";
-            this.btnNewSection.UseVisualStyleBackColor = true;
+            this.btnNewSection.UseVisualStyleBackColor = false;
             this.btnNewSection.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // pnlCompanies
@@ -116,24 +117,28 @@
             // 
             // btnDetailOfSection
             // 
-            this.btnDetailOfSection.Location = new System.Drawing.Point(39, 42);
+            this.btnDetailOfSection.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDetailOfSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDetailOfSection.Location = new System.Drawing.Point(23, 42);
             this.btnDetailOfSection.Name = "btnDetailOfSection";
-            this.btnDetailOfSection.Size = new System.Drawing.Size(103, 23);
+            this.btnDetailOfSection.Size = new System.Drawing.Size(103, 36);
             this.btnDetailOfSection.TabIndex = 4;
             this.btnDetailOfSection.Tag = "0";
             this.btnDetailOfSection.Text = "Zobraziť ";
-            this.btnDetailOfSection.UseVisualStyleBackColor = true;
+            this.btnDetailOfSection.UseVisualStyleBackColor = false;
             this.btnDetailOfSection.Click += new System.EventHandler(this.BtnDetail_Click);
             // 
             // btnUpdateSection
             // 
-            this.btnUpdateSection.Location = new System.Drawing.Point(163, 42);
+            this.btnUpdateSection.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnUpdateSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUpdateSection.Location = new System.Drawing.Point(147, 42);
             this.btnUpdateSection.Name = "btnUpdateSection";
-            this.btnUpdateSection.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateSection.Size = new System.Drawing.Size(143, 36);
             this.btnUpdateSection.TabIndex = 3;
             this.btnUpdateSection.Tag = "0";
             this.btnUpdateSection.Text = "Upraviť / Zmazať";
-            this.btnUpdateSection.UseVisualStyleBackColor = true;
+            this.btnUpdateSection.UseVisualStyleBackColor = false;
             this.btnUpdateSection.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // pnlDivisions
@@ -276,42 +281,40 @@
             this.lblEmployees.TabIndex = 0;
             this.lblEmployees.Text = "Zamestanci oddelenia";
             // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(334, 42);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(132, 23);
-            this.btnDeleteEmployee.TabIndex = 8;
-            this.btnDeleteEmployee.Text = "Zmazať zamestnanca";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
-            // 
             // btnDetailOfEmployee
             // 
-            this.btnDetailOfEmployee.Location = new System.Drawing.Point(40, 42);
+            this.btnDetailOfEmployee.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDetailOfEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDetailOfEmployee.Location = new System.Drawing.Point(45, 42);
             this.btnDetailOfEmployee.Name = "btnDetailOfEmployee";
-            this.btnDetailOfEmployee.Size = new System.Drawing.Size(132, 23);
+            this.btnDetailOfEmployee.Size = new System.Drawing.Size(128, 36);
             this.btnDetailOfEmployee.TabIndex = 7;
-            this.btnDetailOfEmployee.Text = "Zobraziť zamestnanca";
-            this.btnDetailOfEmployee.UseVisualStyleBackColor = true;
+            this.btnDetailOfEmployee.Text = "Zobraziť";
+            this.btnDetailOfEmployee.UseVisualStyleBackColor = false;
             this.btnDetailOfEmployee.Click += new System.EventHandler(this.btnDetailOfEmployee_Click);
             // 
             // btnUpdateEmployee
             // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(187, 42);
+            this.btnUpdateEmployee.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(202, 42);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(132, 23);
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(198, 36);
             this.btnUpdateEmployee.TabIndex = 6;
-            this.btnUpdateEmployee.Text = "Upraviť zamestnanca";
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.Text = "Upraviť / zmazať";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = false;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // btnEmployees
             // 
-            this.btnEmployees.Location = new System.Drawing.Point(482, 42);
+            this.btnEmployees.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEmployees.Location = new System.Drawing.Point(429, 42);
             this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Size = new System.Drawing.Size(132, 23);
+            this.btnEmployees.Size = new System.Drawing.Size(132, 36);
             this.btnEmployees.TabIndex = 2;
-            this.btnEmployees.Text = "Nový zamestnanec";
-            this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Text = "Nový";
+            this.btnEmployees.UseVisualStyleBackColor = false;
             this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // pnlSectionBtns
@@ -321,17 +324,18 @@
             this.pnlSectionBtns.Controls.Add(this.btnDetailOfSection);
             this.pnlSectionBtns.Controls.Add(this.btnNewSection);
             this.pnlSectionBtns.Controls.Add(this.btnUpdateSection);
-            this.pnlSectionBtns.Location = new System.Drawing.Point(12, 512);
+            this.pnlSectionBtns.Location = new System.Drawing.Point(62, 512);
             this.pnlSectionBtns.Name = "pnlSectionBtns";
-            this.pnlSectionBtns.Size = new System.Drawing.Size(421, 100);
+            this.pnlSectionBtns.Size = new System.Drawing.Size(460, 100);
             this.pnlSectionBtns.TabIndex = 11;
             // 
             // lblSections
             // 
             this.lblSections.AutoSize = true;
+            this.lblSections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblSections.Location = new System.Drawing.Point(20, 13);
             this.lblSections.Name = "lblSections";
-            this.lblSections.Size = new System.Drawing.Size(40, 13);
+            this.lblSections.Size = new System.Drawing.Size(56, 16);
             this.lblSections.TabIndex = 6;
             this.lblSections.Text = "Sekcie";
             // 
@@ -340,20 +344,20 @@
             this.pnlEmployeesBtns.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlEmployeesBtns.Controls.Add(this.label1);
             this.pnlEmployeesBtns.Controls.Add(this.btnUpdateEmployee);
-            this.pnlEmployeesBtns.Controls.Add(this.btnDeleteEmployee);
             this.pnlEmployeesBtns.Controls.Add(this.btnEmployees);
             this.pnlEmployeesBtns.Controls.Add(this.btnDetailOfEmployee);
-            this.pnlEmployeesBtns.Location = new System.Drawing.Point(624, 512);
+            this.pnlEmployeesBtns.Location = new System.Drawing.Point(620, 512);
             this.pnlEmployeesBtns.Name = "pnlEmployeesBtns";
-            this.pnlEmployeesBtns.Size = new System.Drawing.Size(642, 100);
+            this.pnlEmployeesBtns.Size = new System.Drawing.Size(603, 100);
             this.pnlEmployeesBtns.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(20, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(96, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "Zamestnanci";
             // 
@@ -418,7 +422,6 @@
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Button btnDetailOfSection;
         private System.Windows.Forms.Button btnDetailOfEmployee;
-        private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Panel pnlSectionBtns;
         private System.Windows.Forms.Label lblSections;
         private System.Windows.Forms.Panel pnlEmployeesBtns;

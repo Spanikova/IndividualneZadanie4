@@ -153,5 +153,39 @@ namespace OrganizationalStructure.Data.Repositories
                 }
             }
         }
+
+        public bool UpdateEmployee(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sqlQuery = @"UPDATE Employees SET 
+                                        FirstName = @name, 
+                                        LastName = @lastName, 
+                                        Title = @title, 
+                                        Phone = @phone, 
+                                        Email = @email, 
+                                        DepartmentCode = @departmentCode
+                                        WHERE ID = @id";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.Add("@id", SqlDbType.Int).Value = employee.ID;
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = employee.FirstName;
+                    command.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employee.LastName;
+                    command.Parameters.Add("@title", SqlDbType.NVarChar).Value = employee.Title ?? null;
+                    command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = employee.Phone;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = employee.Email;
+                    command.Parameters.Add("@departmentCode", SqlDbType.NVarChar).Value = employee.DepartmentCode;
+                    return (command.ExecuteNonQuery() > 0);
+                }
+                catch (SqlException e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

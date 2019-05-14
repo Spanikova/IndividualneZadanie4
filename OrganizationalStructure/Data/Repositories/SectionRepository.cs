@@ -158,6 +158,41 @@ namespace OrganizationalStructure.Data.Repositories
             }
         }
 
+        public Section GetCompanyByCode(string code)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sqlQuery = @"SELECT ID, Name, Code, OrganizationalLevel, ManagerID, SuperiorSectionID
+                                       FROM Sections WHERE Code = @code AND OrganizationalLevel = 0";
+                    SqlCommand command = new SqlCommand(sqlQuery, connection);
+                    command.Parameters.Add("@code", SqlDbType.NVarChar).Value = code;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Section section = new Section();
+                            section.ID = reader.GetInt32(0);
+                            section.Name = reader.GetString(1);
+                            section.Code = reader.GetString(2);
+                            section.OrganizationalLevel = (OrganizationalLevel)reader.GetInt32(3);
+                            section.ManagerID = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4);
+                            section.SuperiorSectionID = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5);
+                            return section;
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Debug.WriteLine(e.StackTrace);
+                    Debug.WriteLine(e.Message);
+                }
+                return null;
+            }
+        }
+
         public bool InsertSection(Section section)
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnectionString))

@@ -215,6 +215,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTitle);
             this.Name = "FrmViewEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zobrazenie zamestnanca";
             this.ResumeLayout(false);
             this.PerformLayout();

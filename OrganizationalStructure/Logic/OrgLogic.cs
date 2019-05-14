@@ -34,6 +34,11 @@ namespace OrganizationalStructure.Logic
             return _sectionRepository.GetDepartmentsByCompany(companyCode);
         }
 
+        public Section GetCompanyByCode(string code)
+        {
+            return _sectionRepository.GetCompanyByCode(code);
+        }
+
         public List<Employee> GetEmployeesByDepartment(string departmentCode)
         {
             return _employeeRepository.GetEmployeesOfDepartment(departmentCode);
@@ -72,6 +77,11 @@ namespace OrganizationalStructure.Logic
         public bool InsertEmployee(Employee employee)
         {
             return _employeeRepository.InsertEmployee(employee);
+        }
+
+        public bool UpdateEmployee(Employee employee)
+        {
+            return _employeeRepository.UpdateEmployee(employee);
         }
     }
 }

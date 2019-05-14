@@ -76,6 +76,12 @@
     <Compile Include="Data\Models\Employee.cs" />
     <Compile Include="Data\Enums\OrganizationalLevel.cs" />
     <Compile Include="Data\Models\Section.cs" />
+    <Compile Include="FrmUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateEmployee.Designer.cs">
+      <DependentUpon>FrmUpdateEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateSection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStructure.resx">
       <DependentUpon>FrmStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateEmployee.resx">
+      <DependentUpon>FrmUpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateSection.resx">
       <DependentUpon>FrmUpdateSection.cs</DependentUpon>

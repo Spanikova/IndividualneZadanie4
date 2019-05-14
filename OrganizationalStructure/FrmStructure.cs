@@ -185,6 +185,15 @@ namespace OrganizationalStructure
                 newForm.ShowDialog();
             }
         }
+
+        private void btnUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            using (FrmUpdateEmployee newForm = new FrmUpdateEmployee())
+            {
+                newForm.ShowDialog();
+            }
+            dtGrdEmployees.DataSource = null;
+        }
     }
 }
 
