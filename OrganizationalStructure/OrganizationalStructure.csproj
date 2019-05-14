@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Enums\ActionType.cs" />
     <Compile Include="Data\Enums\EnumDescriptor.cs" />
     <Compile Include="Data\Repositories\EmployeeRepository.cs" />
     <Compile Include="Data\Repositories\SectionRepository.cs" />
@@ -55,6 +54,12 @@
     </Compile>
     <Compile Include="FrmNewSection.Designer.cs">
       <DependentUpon>FrmNewSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSectionDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSectionDetail.Designer.cs">
+      <DependentUpon>FrmSectionDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmStructure.cs">
       <SubType>Form</SubType>
@@ -76,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmNewSection.resx">
       <DependentUpon>FrmNewSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSectionDetail.resx">
+      <DependentUpon>FrmSectionDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStructure.resx">
       <DependentUpon>FrmStructure.cs</DependentUpon>

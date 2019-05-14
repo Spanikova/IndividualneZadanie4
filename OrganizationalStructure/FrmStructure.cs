@@ -26,7 +26,10 @@ namespace OrganizationalStructure
         #region Buttons
         private void BtnDetail_Click(object sender, EventArgs e)
         {
-            //OpenFrmSection(ActionType.Detail);
+            using (FrmSectionDetail newForm = new FrmSectionDetail())
+            {
+                newForm.ShowDialog();
+            }
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace OrganizationalStructure
 
         private void FillDtGrdEmployees(string departmentCode)
         {
-            dtGrdEmployees.DataSource = _logic.GetEmployees(departmentCode);
+            dtGrdEmployees.DataSource = _logic.GetEmployeesByDepartment(departmentCode);
             dtGrdEmployees.Columns["ID"].Visible = false;
             dtGrdEmployees.Columns["Phone"].Visible = false;
             dtGrdEmployees.Columns["Email"].Visible = false;

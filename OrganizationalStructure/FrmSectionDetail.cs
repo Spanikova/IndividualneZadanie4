@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace OrganizationalStructure
 {
-    public partial class FrmUpdateSection : Form
+    public partial class FrmSectionDetail : Form
     {
         private OrgStructureLogic _logic = new OrgStructureLogic();
 
-        public FrmUpdateSection()
+        public FrmSectionDetail()
         {
             InitializeComponent();
             FillCmbCompanies();
@@ -35,51 +35,49 @@ namespace OrganizationalStructure
             cmbSections.DisplayMember = "Name";
         }
 
-        private void FillCmbManagers(string companyCode)
+        private void FillLabels(Section section)
         {
-            cmbManagers.DataSource = _logic.GetAllEmployees();
-            cmbManagers.DisplayMember = "FullName";
+            lblType.Text = EnumDescriptor.GetEnumDescription(section.OrganizationalLevel);
+            lblCode.Text = section.Code;
+            Employee manager = _logic.GetManagerOfSection(section.ManagerID);
+            lblManager.Text = (manager != null) ? manager.FullName : "";
+            FillLblSectionManager(section.OrganizationalLevel);
         }
 
         private void cmbCompanies_SelectedValueChanged(object sender, EventArgs e)
         {
             string companyCode = ((Section)cmbCompanies.SelectedValue).Code;
             FillCmbSections(companyCode);
-            FillCmbManagers(companyCode);
         }
 
         private void cmbSections_SelectedValueChanged(object sender, EventArgs e)
         {
             Section section = (Section)cmbSections.SelectedValue;
-            lblCode.Text = section.Code.Substring(0, section.Code.Length - 2);
-            txtCode.Text = section.Code.Substring(section.Code.Length - 2, 2);
-            txtName.Text = section.Name;
+            FillLabels(section);
+        }
+
+        private void FillLblSectionManager(OrganizationalLevel orgLevel)
+        {
+            switch (orgLevel)
+            {
+                case OrganizationalLevel.Company:
+                    lblSectionManager.Text = "Riaditeľ:";
+                        break;
+                case OrganizationalLevel.Division:
+                    lblSectionManager.Text = "Vedúci divízie:";
+                    break;
+                case OrganizationalLevel.Project:
+                    lblSectionManager.Text = "Vedúci projektu:";
+                    break;
+                case OrganizationalLevel.Department:
+                    lblSectionManager.Text = "Vedúci oddelenia:";
+                    break;
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Section section = (Section)cmbSections.SelectedValue;
-            section.Name = txtName.Text;
-            section.Code = $"{lblCode.Text}{txtCode.Text}";
-            section.ManagerID = ((Employee)cmbManagers.SelectedValue).ID;
-            if (_logic.UpdateSection(section))
-            {
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Úprava sekcie nebola úspešná\nKód musí byť unikátny.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnDeleteSection_Click(object sender, EventArgs e)
-        {
-            string sectionCode = ((Section)cmbSections.SelectedValue).Code;
-            OrganizationalLevel orgLevel = ((Section)cmbSections.SelectedValue).OrganizationalLevel;
-            if (_logic.DeleteSection(sectionCode, orgLevel))
-            {
-                Close();
-            }
+            Close();
         }
     }
 }

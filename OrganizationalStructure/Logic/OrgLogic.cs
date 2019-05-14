@@ -29,7 +29,7 @@ namespace OrganizationalStructure.Logic
             return _sectionRepository.GetSectionsByCompany(companyCode);
         }
 
-        public List<Employee> GetEmployees(string departmentCode)
+        public List<Employee> GetEmployeesByDepartment(string departmentCode)
         {
             return _employeeRepository.GetEmployeesOfDepartment(departmentCode);
         }
@@ -37,6 +37,16 @@ namespace OrganizationalStructure.Logic
         public List<Employee> GetEmployeesOfCompany(string companyCode)
         {
             return _employeeRepository.GetEmployeesOfCompany(companyCode);
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            return _employeeRepository.GetAllEmployees();
+        }
+
+        public Employee GetManagerOfSection(int? managerId)
+        {
+            return _employeeRepository.GetManagerOfSection(managerId);
         }
 
         public Dictionary<OrganizationalLevel, string> GetOrganizationalLevels()
