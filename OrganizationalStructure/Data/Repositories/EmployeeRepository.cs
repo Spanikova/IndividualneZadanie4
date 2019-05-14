@@ -57,7 +57,7 @@ namespace OrganizationalStructure.Data.Repositories
                 try
                 {
                     connection.Open();
-                    string sqlQuery = @"SELECT ID, FirstName, LastName, Title, Phone, Email, DepartmentID 
+                    string sqlQuery = @"SELECT E.ID, FirstName, LastName, Title, Phone, Email, DepartmentID 
                                         FROM Employees AS E
                                         JOIN Sections AS S ON E.DepartmentID = S.ID 
                                         WHERE S.Code LIKE '' + @CompanyCode + '%'";

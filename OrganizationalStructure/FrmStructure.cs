@@ -23,7 +23,6 @@ namespace OrganizationalStructure
         {
             InitializeComponent();
             FillDtGrdSection(dtGrdCompanies, OrganizationalLevel.Company, null);
-            dtGrdEmployees.DataSource = _logic.GetEmployeesOfCompany("111");
         }
 
         #region Buttons
@@ -55,14 +54,6 @@ namespace OrganizationalStructure
             OpenFrmSection(_orgLevel, _action);
         }
         #endregion
-
-        private void OpenFrmSection(OrganizationalLevel orgLevel, ActionType action)
-        {
-            using (FrmSection newForm = new FrmSection(orgLevel, action))
-            {
-                newForm.ShowDialog();
-            }
-        }
 
         #region Fill DataGridViews
         private void FillDtGrdSection(DataGridView dataGridView, OrganizationalLevel level, int? superiorSectionId)
@@ -133,8 +124,8 @@ namespace OrganizationalStructure
         {
             Section section = ReadSectionFromDtGrd((DataGridView)sender);
             FillDtGrdSection(dtGrdDivisions, OrganizationalLevel.Division, section.ID);
-            dtGrdProjects.DataSource = null;
-            dtGrdDepartments.DataSource = null;
+            FillDtGrdSection(dtGrdProjects, OrganizationalLevel.Project, section.ID);
+            FillDtGrdSection(dtGrdDepartments, OrganizationalLevel.Department, section.ID);
             FillDtGrdEmployees(section.ID);
         }
 
@@ -142,7 +133,7 @@ namespace OrganizationalStructure
         {
             Section section = ReadSectionFromDtGrd((DataGridView)sender);
             FillDtGrdSection(dtGrdProjects, OrganizationalLevel.Project, section.ID);
-            dtGrdDepartments.DataSource = null;
+            FillDtGrdSection(dtGrdDepartments, OrganizationalLevel.Department, section.ID);
             FillDtGrdEmployees(section.ID);
         }
 
@@ -164,6 +155,15 @@ namespace OrganizationalStructure
             Employee employee = ReadEmployeeFromDtGrd();
         }
         #endregion
+
+        private void OpenFrmSection(OrganizationalLevel orgLevel, ActionType action)
+        {
+            using (FrmSection newForm = new FrmSection(orgLevel, action))
+            {
+                newForm.ShowDialog();
+            }
+        }
+
     }
 }
 
