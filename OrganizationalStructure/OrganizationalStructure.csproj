@@ -65,7 +65,13 @@
     <Compile Include="Data\Models\Employee.cs" />
     <Compile Include="Data\Enums\OrganizationalLevel.cs" />
     <Compile Include="Data\Models\Section.cs" />
-    <Compile Include="Logic\OrganizationalLogic.cs" />
+    <Compile Include="FrmUpdateSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateSection.Designer.cs">
+      <DependentUpon>FrmUpdateSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\OrgLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmNewSection.resx">
@@ -73,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStructure.resx">
       <DependentUpon>FrmStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateSection.resx">
+      <DependentUpon>FrmUpdateSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

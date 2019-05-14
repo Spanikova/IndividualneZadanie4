@@ -31,7 +31,11 @@ namespace OrganizationalStructure
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            //OpenFrmSection(ActionType.Update);
+            using (FrmUpdateSection newForm = new FrmUpdateSection())
+            {
+                newForm.ShowDialog();
+            }
+            FillDtGrdSection(dtGrdCompanies, OrganizationalLevel.Company, null);
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)

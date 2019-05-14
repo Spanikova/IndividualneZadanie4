@@ -66,7 +66,7 @@ namespace OrganizationalStructure
         {
             Section section = new Section();
             section.Name = txtName.Text;
-            section.Code = txtCode.Text;
+            section.Code = $"{lblCode.Text}{txtCode.Text}";
             section.OrganizationalLevel = (OrganizationalLevel) cmbSectionType.SelectedValue;
             section.SuperiorSectionID = (cmbSuperiorSection.SelectedValue == null) ? null : (int?)((Section)cmbSuperiorSection.SelectedValue).ID;
             _logic.InsertSection(section);

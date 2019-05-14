@@ -24,6 +24,11 @@ namespace OrganizationalStructure.Logic
             return _sectionRepository.GetSections(level, superiorSectionId);
         }
 
+        public List<Section> GetSectionsByCompany(string companyCode)
+        {
+            return _sectionRepository.GetSectionsByCompany(companyCode);
+        }
+
         public List<Employee> GetEmployees(int departmentId)
         {
             return _employeeRepository.GetEmployeesOfDepartment(departmentId);
@@ -42,6 +47,11 @@ namespace OrganizationalStructure.Logic
         public bool InsertSection(Section section)
         {
             return _sectionRepository.InsertSection(section);
+        }
+
+        public bool UpdateSection(Section section)
+        {
+            return _sectionRepository.UpdateSection(section);
         }
     }
 }
